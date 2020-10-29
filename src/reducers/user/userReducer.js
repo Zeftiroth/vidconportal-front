@@ -6,23 +6,23 @@ const initialState = [
   },
 ];
 
-const adminReducer = (state = initialState, action) => {
+const userReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "ADMIN_LOADING":
+    case "USER_LOADING":
       return {
         ...state,
         loading: true,
         error: "",
       };
 
-    case "ADMIN_FAIL":
+    case "USER_FAIL":
       return {
         ...state,
         loading: false,
-        error: "Fail to get specific admin",
+        error: "Fail to get USER",
       };
 
-    case "ADMIN_SUCCESS":
+    case "USER_SUCCESS":
       return {
         ...state,
         loading: false,
@@ -35,4 +35,4 @@ const adminReducer = (state = initialState, action) => {
   }
 };
 
-export default adminReducer;
+export default userReducer;

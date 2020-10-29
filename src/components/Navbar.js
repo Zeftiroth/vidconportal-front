@@ -1,40 +1,46 @@
 import React from "react";
 import AuthOptions from "./AuthOptions";
+import { useHistory } from "react-router-dom";
 
 function Navbar() {
+  let history = useHistory();
+  const home = ()=> {
+    
+    history.push('/authRouting')
+  }
   return (
     <div>
       <div>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <a class="navbar-brand" href="/">
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+          <a class="navbar-brand" onClick={home}>
             VinConPortal
           </a>
           <button
             class="navbar-toggler"
             type="button"
             data-toggle="collapse"
-            data-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
+            data-target="#navbarTogglerDemo02"
+            aria-controls="navbarTogglerDemo02"
+            aria-expanded="true"
             aria-label="Toggle navigation"
           >
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-              <li class="nav-item ">
-                <a class="nav-link" href="#">
+              {/* <li class="nav-item ">
+                <a class="nav-link" href="/userRegister">
                   Participant
-                  {/* <span class="sr-only">(current)</span> */}
+                  
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="/exhibitorRegister">
                   Exhibitor
                 </a>
-              </li>
+              </li> */}
               <li class="nav-item">
-                <a class="nav-link" href="/admin">
+                <a class="nav-link" href="/adminLogin">
                   Admin
                 </a>
               </li>
