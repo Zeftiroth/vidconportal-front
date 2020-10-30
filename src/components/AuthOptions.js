@@ -1,33 +1,44 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import AdminContext from "../context/AdminContext";
+import LoginContext from "../context/LoginContext";
+import { useDispatch, useSelector } from "react-redux";
+import { GetUser } from "../actions/userActions";
 
 function AuthOptions() {
-  const { adminData, setAdminData } = useContext(AdminContext);
+  const userInfo = useSelector((state) => state.userInfo)
+  const dispatch = useDispatch();
+  let { loginData, setLoginData } = useContext(LoginContext);
+  const uid = loginData?.data?.uid?.user?._id;
+  console.log(loginData)
+  useEffect(() => {
+    dispatch(GetUser(uid?._id));
+    console.log(userInfo)
+  }, [])
   const history = useHistory();
   const login = () => {
-    history.push("/adminLogin");
+    history.push("/authRouting");
   };
+  
 
-  const signUp = () => {
-    history.push("/createAdmin");
-  };
 
   const logout = () => {
-    setAdminData({
+    setLoginData({
       token: undefined,
-      admin: undefined,
+      data: undefined,
     });
     localStorage.setItem("auth-token", "");
   };
   return (
     <div>
-      {adminData.admin ? (
-        <button onClick={logout}>Log Out</button>
+      {loginData.data ? (
+        <button className="btn btn-outline-light px-2" onClick={logout}>
+          Log Out {loginData.data.data?.username}
+        </button>
       ) : (
         <div>
-          <button onClick={login}>Login</button>
-          <button onClick={signUp}>Sign Up</button>
+          <button className="btn btn-outline-light px-2" onClick={login}>
+            Login or Sign Up
+          </button>
         </div>
       )}
     </div>

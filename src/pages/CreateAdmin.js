@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import _ from "lodash";
+import {AddAdmin} from "../actions/adminActions"
 
 function CreateAdmin() {
   const [firstName, setFirstName] = useState("");
@@ -7,7 +10,12 @@ function CreateAdmin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-
+  const [department, setDepartment] = useState("");
+  const [error, setError] = useState("");
+  const dispatch = useDispatch();
+  const adminAdd = useSelector((state) => state.adminAdd)
+  console.log(adminAdd.data)
+  
   const handleFirstNameInput = (e) => {
     setFirstName(e.target.value);
   };
@@ -28,27 +36,41 @@ function CreateAdmin() {
     setConfirmPassword(e.target.value);
   };
 
+  const createAdminInfo = { adminName: { firstName, lastName},
+        email: email,
+        password: password,
+        department: department,
+      }
+
   // const backend = process.env.REACT_APP_BACKEND_URL
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios
-      .post(`http://localhost:5000/admins/add`, {
-        adminName: { firstName, lastName },
-        email: email,
-        password: password,
-      })
-      .then((res) => {
-        console.log(res);
-        alert(`Admin ${firstName}` + ` ${lastName} created successfully`);
+    // axios
+    //   .post(`http://localhost:5000/admins/add`, {
+    //     adminName: { firstName, lastName },
+    //     email: email,
+    //     password: password,
+    //   })
+    //   .then((res) => {
+    //     console.log(res);
+    //     alert(`Admin ${firstName}` + ` ${lastName} created successfully`);
+    //     setFirstName("");
+    //     setLastName("");
+    //     setEmail("");
+    //     setPassword("");
+    //     setConfirmPassword("");
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //     // err.response.data.msg && setError(err.response.data.msg)
+    //   });
+    dispatch(AddAdmin(createAdminInfo))
+    alert(`Admin ${firstName}` + ` ${lastName} created successfully`);
         setFirstName("");
         setLastName("");
         setEmail("");
         setPassword("");
         setConfirmPassword("");
-      })
-      .catch((err) => {
-        console.log(err);
-      });
   };
   return (
     <div className="d-flex justify-content-center pt-5">
@@ -71,6 +93,12 @@ function CreateAdmin() {
             value={confirmPassword}
             type="text"
             onChange={handleConfirmPasswordInput}
+          />
+          <div> Department </div>
+          <input
+            value={department}
+            type="text"
+            onChange={(e) => setDepartment(e.target.value)}
           />
           <div>
             <button>Create Admin</button>

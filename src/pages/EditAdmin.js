@@ -16,7 +16,7 @@ function EditAdmin(props) {
      const [email, setEmail] = useState('');
      
      const [access, setAccess] = useState('');
-     const [access2, setAccess2] = useState("");
+     const [department, setDepartment] = useState("");
     //  const [password, setPassword] = useState("");
     //  const [confirmPassword, setConfirmPassword] = useState("");
 
@@ -64,7 +64,8 @@ function EditAdmin(props) {
             adminName: { firstName, lastName },
             email: email,
             
-            access: access
+            access: access,
+            department: department,
             // password: password,
           })
           .then((res) => {
@@ -97,21 +98,16 @@ function EditAdmin(props) {
         if (!_.isEmpty(adminState.data)) {
             let admin = adminState.data
             return (
+              <div>
                 <div>
-                    <div>
-                        First Name: {admin.adminName.firstName} Last Name: {admin.adminName.lastName}
-                        
-                    </div>
-                    <div>
-                        Email: {admin.email}
-
-                    </div>
-                    <div>
-                        Access: {admin.access}
-                    </div>
-                    
+                  First Name: {admin.adminName.firstName} Last Name:{" "}
+                  {admin.adminName.lastName}
                 </div>
-            )
+                <div>Email: {admin.email}</div>
+                <div>Access: {admin.access}</div>
+                <div>Department: {admin.access}</div>
+              </div>
+            );
         }
 
         if (adminState.loading) {
@@ -142,6 +138,9 @@ function EditAdmin(props) {
           <div> Email </div>
           <input value={email} type="text" onChange={handleEmailInput} />
           <div>
+            <div> Department </div>
+          <input value={department} type="text" onChange={(e) => setDepartment(e.target.value)} />
+          <div></div>
             
             <label > Access </label> 
               <select value={access} onChange={handleAccess}>

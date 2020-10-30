@@ -1,14 +1,14 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import _ from "lodash";
-import AdminContext from "../context/AdminContext";
+import LoginContext from "../context/LoginContext";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 
 function AdminLogin() {
   const [adminEmail, setAdminEmail] = useState("");
   const [pass, setPass] = useState("");
-  const { setAdminData } = useContext(AdminContext);
+  const { setLoginData } = useContext(LoginContext);
 
   const handleEmailChange = (e) => {
     setAdminEmail(e.target.value);
@@ -27,9 +27,9 @@ function AdminLogin() {
       })
       .then((res) => {
         console.log(res);
-        setAdminData({
+        setLoginData({
           token: res.data.token,
-          admin: res.data.admin,
+          login: res.data.login,
         });
         localStorage.setItem("auth-token", res.data.token);
         history.push("/admin");

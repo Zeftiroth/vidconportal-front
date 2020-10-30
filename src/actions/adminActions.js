@@ -42,17 +42,29 @@ export const GetAdmin = (id) => async (dispatch) => {
   }
 };
 
-// export const AddAdmin = (props) => async (dispatch) => {
-//     try {
-//         dispatch({
-//             type: "ADD_ADMIN_LOADING",
+export const AddAdmin = (props) => async (dispatch) => {
+    try {
+        dispatch({
+            type: "ADD_ADMIN_LOADING",
         
-//         })
-//         const result = await axios.post(`http://localhost:5000/admins/add`, {
-//           adminName:  props.firstName, props.lastName ,
-//           email: props.email,
+        })
+        const result = await axios.post(`http://localhost:5000/admins/add`, {
+          adminName:  props.adminName, 
+          email: props.email,
+          password: props.password,
 
-//           access: access,
-//         });
-//     }
-// }
+          
+        });
+
+        dispatch({
+          type: "ADD_ADMIN_SUCCESS",
+          payload: result.data
+        })
+
+    } catch (err) {
+      dispatch({
+        type: "ADD_ADMIN_ERROR",
+        payload: err.message
+      })
+    }
+}
