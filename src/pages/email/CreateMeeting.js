@@ -2,33 +2,20 @@ import React, { useState, useEffect, useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import _ from "lodash";
 import LoginContext from "../../context/LoginContext";
-
+// import { ZoomMtg } from "@zoomus/websdk";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 
-function CreateEmail() {
+function CreateMeeting() {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
-  let { loginData, setLoginData } = useContext(LoginContext);
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    await axios
-      .post(process.env.REACT_APP_BACKEND_URL + "admins/meeting", {
-        title,
-        body,
-        sender: loginData.data.id,
-      })
-      .then((res) => {
-        console.log(res.data);
-      })
-      .catch((err) => {
-        console.log(err.messagae);
-      });
   };
   return (
     <div>
-      <div>Mass Email to All Participants</div>
       <div>
+        <div>Create Zoom Meeting</div>
         <form onSubmit={handleSubmit}>
           <div>Title</div>
           <input
@@ -51,24 +38,13 @@ function CreateEmail() {
               }}
             ></textarea>
           </div>
-          {/* <input
-              value={body}
-              type="text"
-              onChange={(e) => {
-                setBody(e.target.value);
-              }}
-            /> */}
-          {/* <div></div>
-            <input />
-            <div></div>
-            <input /> */}
-          <button className="d-block" type="submit">
-            Send
-          </button>
+          <div>
+            <button type="submit">Create</button>
+          </div>
         </form>
       </div>
     </div>
   );
 }
 
-export default CreateEmail;
+export default CreateMeeting;

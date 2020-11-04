@@ -12,21 +12,23 @@ import LandingPage from "./pages/LandingPage";
 import Navbar from "./components/Navbar";
 import AdminContext from "./context/LoginContext";
 import axios from "axios";
-import UserRegister from './pages/user/UserRegister'
-import UserLogin from './pages/user/UserLogin'
-import ExhibitorRegister from './pages/exhibitor/exhibitorSignUp'
-import ExhibitorLogin from './pages/exhibitor/exhibitorLogin'
-import AuthRouting from './pages/AuthRouting'
-import UserProfile from './pages/user/UserProfile'
-import UserEdit from './pages/user/UserEdit'
-import ExhibitorProfile from './pages/exhibitor/exhibitorProfile'
-import ExhibitorEdit from './pages/exhibitor/exhibitorEdit'
-import UserList from './pages/user/UserList'
-import CreateEmail from './pages/email/CreateEmail'
-import MeetingList from './pages/email/MeetingList'
+import UserRegister from "./pages/user/UserRegister";
+import UserLogin from "./pages/user/UserLogin";
+import ExhibitorRegister from "./pages/exhibitor/exhibitorSignUp";
+import ExhibitorLogin from "./pages/exhibitor/exhibitorLogin";
+import AuthRouting from "./pages/AuthRouting";
+import UserProfile from "./pages/user/UserProfile";
+import UserEdit from "./pages/user/UserEdit";
+import ExhibitorProfile from "./pages/exhibitor/exhibitorProfile";
+import ExhibitorEdit from "./pages/exhibitor/exhibitorEdit";
+import UserList from "./pages/user/UserList";
+import CreateEmail from "./pages/email/CreateEmail";
+import MeetingList from "./pages/email/MeetingList";
+import CreateMeeting from "./pages/email/CreateMeeting";
+import CreateEvent from "./pages/email/CreateEvent";
 
 function App() {
-  let [toggle, setToggle] = useState(false)
+  let [toggle, setToggle] = useState(false);
   let [loginData, setLoginData] = useState({
     token: undefined,
     data: undefined,
@@ -64,8 +66,8 @@ function App() {
     );
 
     console.log(tokenResAdmin.data);
-    console.log(tokenResExhibitor.data)
-    console.log(tokenResUser.data)
+    console.log(tokenResExhibitor.data);
+    console.log(tokenResUser.data);
     if (tokenResAdmin.data) {
       const loginRes = await axios.get(
         `http://localhost:5000/admins/checkLoggedIn`,
@@ -76,10 +78,9 @@ function App() {
       setLoginData({
         token,
         data: loginRes.data,
-        
       });
       // localStorage.setItem("auth-token", token);
-    } else if (tokenResExhibitor.data){
+    } else if (tokenResExhibitor.data) {
       const exloginRes = await axios.get(
         `http://localhost:5000/exhibitors/checkLoggedIn`,
         {
@@ -89,38 +90,32 @@ function App() {
       setLoginData({
         token,
         data: exloginRes.data,
-        
       });
     } else if (tokenResUser.data) {
-      await axios.get(
-        `http://localhost:5000/users/checkLoggedIn`,
-        {
+      await axios
+        .get(`http://localhost:5000/users/checkLoggedIn`, {
           headers: { "x-auth-token": token },
-        }
-      ).then( (userLoginRes)  =>{
-        console.log(userLoginRes)
+        })
+        .then((userLoginRes) => {
+          console.log(userLoginRes);
 
-        setLoginData({
-          token: token,
-          data: userLoginRes.data
-      })
-      });
+          setLoginData({
+            token: token,
+            data: userLoginRes.data,
+          });
+        });
     }
   };
   useEffect(() => {
-    console.log(loginData)
+    console.log(loginData);
     checkLogin();
-    
   }, []);
   // useEffect(() => {
   //   recheckLogin()
   // },[])
   const recheckLogin = async () => {
     let token = localStorage.getItem("auth-token");
-    
 
-    
-    
     const retokenResAdmin = await axios.post(
       `http://localhost:5000/admins/tokenIsValid`,
       null,
@@ -146,8 +141,8 @@ function App() {
     );
 
     console.log(retokenResAdmin.data);
-    console.log(retokenResExhibitor.data)
-    console.log(retokenResUser.data)
+    console.log(retokenResExhibitor.data);
+    console.log(retokenResUser.data);
     if (retokenResAdmin.data) {
       const loginRes = await axios.get(
         `http://localhost:5000/admins/checkLoggedIn`,
@@ -161,7 +156,7 @@ function App() {
         access: loginRes.access,
       });
       // localStorage.setItem("auth-token", token);
-    } else if (retokenResExhibitor.data){
+    } else if (retokenResExhibitor.data) {
       const loginRes = await axios.get(
         `http://localhost:5000/exhibitors/checkLoggedIn`,
         {
@@ -174,22 +169,20 @@ function App() {
         access: loginRes.access,
       });
     } else if (retokenResUser.data) {
-      await axios.get(
-        `http://localhost:5000/users/checkLoggedIn`,
-        {
+      await axios
+        .get(`http://localhost:5000/users/checkLoggedIn`, {
           headers: { "x-auth-token": token },
-        }
-      ).then( (userLoginRes)  =>{
-        console.log(userLoginRes)
+        })
+        .then((userLoginRes) => {
+          console.log(userLoginRes);
 
-        setLoginData({
-          token: token,
-          data: userLoginRes.data
-      })
-      });
+          setLoginData({
+            token: token,
+            data: userLoginRes.data,
+          });
+        });
     }
-
-  }
+  };
   return (
     <div className="App">
       <AdminContext.Provider value={{ loginData, setLoginData }}>
@@ -211,6 +204,8 @@ function App() {
             exact
             component={ExhibitorProfile}
           />
+          <Route path={"/createEvent"} exact component={CreateEvent} />
+          <Route path={"/createMeeting"} exact component={CreateMeeting} />
           <Route path={"/createEmail"} exact component={CreateEmail} />
           <Route path={"/meetingList"} exact component={MeetingList} />
           <Route path={"/exhibitorEdit"} exact component={ExhibitorEdit} />
