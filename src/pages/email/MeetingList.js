@@ -6,45 +6,69 @@ import LoginContext from "../../context/LoginContext";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 function MeetingList() {
-    const [meetingList, setMeetingList] = useState([])
-    let token = localStorage.getItem("auth-token");
-    const fetchMeetingList = (e) => {
-        e.preventDefault();
-        try {
-
-             axios.get(process.env.REACT_APP_BACKEND_URL + "exhibitors/m", 
-            {
-                headers: { "x-auth-token": token },
-            })
-            .then((response) => {
-                console.log(response.data)
-            }).catch((error) => {
-                
-                console.log(error)
-            })
-        } catch (e) {
-
-            console.log(e.message)
-        }
-        
+  const [meetingList, setMeetingList] = useState([]);
+  let token = localStorage.getItem("auth-token");
+  const fetchMeetingList = async (e) => {
+    // e.preventDefault();
+    try {
+      await axios
+        .get(process.env.REACT_APP_BACKEND_URL + "admins/list", {
+          headers: { "x-auth-token": token },
+        })
+        .then((response) => {
+          console.log(response.data);
+          setMeetingList(response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    } catch (e) {
+      console.log(e.message);
     }
-    // useEffect( () => {
-    //     fetchMeetingList()
-        
-    // }, [])
+  };
+  useEffect(() => {
+    fetchMeetingList();
+  }, []);
 
-    return (
+  return (
+    <div>
+      <div>
+        <div>Meeting List</div>
         <div>
-            <div>
+          <div>
+            {meetingList ? (
+              <div>
                 <div>
-                    Meeting List
+                  {meetingList.map((meeting) => {
+                    return (
+                      <div>
+                        <div>Title: {meeting.title}</div>
+                        <div>Content: {meeting.body}</div>
+                        <div>
+                          {" "}
+                          Receipient:{" "}
+                          {meeting.receiver.map((receiver) => {
+                            return (
+                              <>
+                                <span>{receiver.username} </span>
+                              </>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
-                <div>
-                    <button onClick={fetchMeetingList}>List</button>
-                </div>
-            </div>
+              </div>
+            ) : (
+              <>unable to fetch list</>
+            )}
+          </div>
         </div>
-    )
+        <div>{/* <button onClick={fetchMeetingList}>List</button> */}</div>
+      </div>
+    </div>
+  );
 }
 
-export default MeetingList
+export default MeetingList;
