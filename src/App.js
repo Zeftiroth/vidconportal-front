@@ -26,6 +26,10 @@ import CreateEmail from "./pages/email/CreateEmail";
 import MeetingList from "./pages/email/MeetingList";
 import CreateMeeting from "./pages/email/CreateMeeting";
 import CreateEvent from "./pages/email/CreateEvent";
+import EventList from "./pages/event/EventList";
+import EditEvent from "./pages/event/EditEvent";
+import JoinEvent from "./pages/event/JoinEvent";
+import PaymentEvent from "./pages/event/PaymentEvent";
 
 function App() {
   let [toggle, setToggle] = useState(false);
@@ -204,8 +208,20 @@ function App() {
             exact
             component={ExhibitorProfile}
           />
+          <Route path={`/editEvent/:editEvent`} exact component={EditEvent} />
+          <Route path={"/eventList"} exact component={EventList} />
           <Route path={"/createEvent"} exact component={CreateEvent} />
-          <Route path={"/createMeeting"} exact component={CreateMeeting} />
+          <Route
+            path={"/createMeeting/:createMeeting"}
+            exact
+            component={CreateMeeting}
+          />
+          <Route
+            path={"/paymentEvent/:paymentEvent"}
+            exact
+            component={PaymentEvent}
+          />
+          <Route path={"/joinEvent"} exact component={JoinEvent} />
           <Route path={"/createEmail"} exact component={CreateEmail} />
           <Route path={"/meetingList"} exact component={MeetingList} />
           <Route path={"/exhibitorEdit"} exact component={ExhibitorEdit} />

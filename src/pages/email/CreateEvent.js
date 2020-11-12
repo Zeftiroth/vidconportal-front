@@ -63,6 +63,7 @@ function CreateEvent() {
                 // value={date}
                 onChange={(e) => {
                   setDate(e);
+                  console.log(date);
                 }}
               />
             </div>
