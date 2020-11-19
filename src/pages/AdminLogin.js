@@ -42,6 +42,7 @@ function AdminLogin() {
   return (
     <div>
       <div>
+        <div>Admin Login</div>
         <form onSubmit={handleSubmit}>
           <div>Admin Email</div>
           <input
