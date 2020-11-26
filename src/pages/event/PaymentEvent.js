@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import _ from "lodash";
 import LoginContext from "../../context/LoginContext";
 import StripeCheckout from "react-stripe-checkout";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
 // import { toast } from "react-toastify";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
@@ -27,20 +29,20 @@ function PaymentEvent(props) {
       });
   };
   async function handleToken(token) {
-    const response = await axios.post(
-      process.env.REACT_APP_BACKEND_URL + `exhibitions/checkout`,
-      { token, eventDetails, sender: loginData.data.id },
-      {
-        headers: { "x-auth-token": token },
-      }
-    );
-    const { status } = response.data;
-    console.log("Response:", response.data);
-    // if (status === "success") {
-    //   toast("Success! Check email for details", { type: "success" });
-    // } else {
-    //   toast("Something went wrong", { type: "error" });
-    // }
+    await axios
+      .post(
+        process.env.REACT_APP_BACKEND_URL + `exhibitions/payment`,
+        { token, eventDetails, sender: loginData.data.data },
+        {
+          headers: { "x-auth-token": token },
+        }
+      )
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
   useEffect(() => {
     fetchEvent();
@@ -66,12 +68,22 @@ function PaymentEvent(props) {
         </div>
         <div>
           <StripeCheckout
-            stripeKey="pk_test_51HlxKrJR3iDF6LZj9fNz4a07pqgneu7qtefD3HAdJmLcJYMC7XzorCyLNZo42ZSW82EWesCyMXIGbpAXTSi060WA000T9R44wc"
+            stripeKey={process.env.REACT_APP_STRIPE_PUBLIC_KEY}
             token={handleToken}
             amount={eventDetails.price * 100}
             name={eventDetails.name}
             billingAddress
-          />
+            shippingAddress
+            panelLabel="Test panel"
+            alipay
+            bitcoin
+          >
+            <button> Pay </button>
+          </StripeCheckout>
+          <script
+            type="text/javascript"
+            src="/javascripts/jquery-3.1.1.min.js"
+          ></script>
         </div>
       </div>
     </div>
