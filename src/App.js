@@ -30,6 +30,8 @@ import EventList from "./pages/event/EventList";
 import EditEvent from "./pages/event/EditEvent";
 import JoinEvent from "./pages/event/JoinEvent";
 import PaymentEvent from "./pages/event/PaymentEvent";
+import PageIndex from "./pages/PageIndex";
+import Reporting from "./pages/reporting/Reporting";
 
 function App() {
   let [toggle, setToggle] = useState(false);
@@ -193,6 +195,7 @@ function App() {
         <Navbar />
         <Switch>
           <Route exact path={"/"} exact component={LandingPage} />
+          <Route path={"/index"} exact component={PageIndex} />
           <Route path={"/admin"} exact component={Admin} />
           <Route path={"/createAdmin"} exact component={CreateAdmin} />
           <Route path={"/userRegister"} exact component={UserRegister} />
@@ -216,6 +219,7 @@ function App() {
             exact
             component={CreateMeeting}
           />
+          <Route path={"/reporting"} exact component={Reporting} />
           <Route
             path={"/paymentEvent/:paymentEvent"}
             exact
