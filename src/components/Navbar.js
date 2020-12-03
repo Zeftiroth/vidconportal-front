@@ -4,10 +4,9 @@ import { useHistory } from "react-router-dom";
 
 function Navbar() {
   let history = useHistory();
-  const home = ()=> {
-    
-    history.push('/authRouting')
-  }
+  const home = () => {
+    history.push("/authRouting");
+  };
   return (
     <div>
       <div>
@@ -40,8 +39,8 @@ function Navbar() {
                 </a>
               </li> */}
               <li class="nav-item">
-                <a class="nav-link" href="/adminLogin">
-                  Admin
+                <a class="nav-link" href="/index">
+                  Index
                 </a>
               </li>
               {/* <li class="nav-item">
