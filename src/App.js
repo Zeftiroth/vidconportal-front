@@ -190,7 +190,7 @@ function App() {
   return (
     <div className="App">
       <AdminContext.Provider value={{ loginData, setLoginData }}>
-        <Navbar />
+      
         <Switch>
           <Route exact path={"/"} exact component={LandingPage} />
           <Route path={"/admin"} exact component={Admin} />
