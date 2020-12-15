@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
+import { Container, Row, Col } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import _ from "lodash";
 import LoginContext from "../../context/LoginContext";
@@ -9,10 +10,12 @@ import axios from "axios";
 import Layout from "../../components/layout";
 import InnerHeader from "../../components/inner-header";
 import PageHeader from "../../components/page-header";
-import EventPage from "../../components/event-page";
+import EventContent from "../../components/event-content";
+
+import Sidebar from "../../components/sidebar";
 import Footer from "../../components/footer";
 
-function EventList() {
+function EventDetails() {
   const [list, setList] = useState([]);
   let token = localStorage.getItem("auth-token");
   const fetchEventList = async () => {
@@ -46,13 +49,24 @@ function EventList() {
     return date;
   };
   return (
-    <Layout>
+     <Layout>
       <InnerHeader />
-      <PageHeader  title="Event Listing" crumbtext="All Events"/>
-      <EventPage />
+      <PageHeader title="Event Details" crumbtext="Event Details" />
+      <section className="blog-details-page">
+        <Container>
+          <Row>
+            <Col lg={8}>
+              <EventContent />
+            </Col>
+            <Col lg={4}>
+              <Sidebar />
+            </Col>
+          </Row>
+        </Container>
+      </section>
       <Footer />
     </Layout>
   );
 }
 
-export default EventList;
+export default EventDetails;
