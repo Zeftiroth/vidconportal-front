@@ -27,7 +27,7 @@ const NavLinks = () => {
            
           </li>
           <li>
-            <a href="#">
+            <a href="/eventList">
               All Events</a>
            
           </li>

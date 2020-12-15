@@ -27,6 +27,7 @@ import MeetingList from "./pages/email/MeetingList";
 import CreateMeeting from "./pages/email/CreateMeeting";
 import CreateEvent from "./pages/email/CreateEvent";
 import EventList from "./pages/event/EventList";
+import EventDetails from "./pages/event/EventDetails";
 import EditEvent from "./pages/event/EditEvent";
 import JoinEvent from "./pages/event/JoinEvent";
 import PaymentEvent from "./pages/event/PaymentEvent";
@@ -213,6 +214,7 @@ function App() {
           />
           <Route path={`/editEvent/:editEvent`} exact component={EditEvent} />
           <Route path={"/eventList"} exact component={EventList} />
+		    <Route path={"/eventDetails"} exact component={EventDetails} />
           <Route path={"/createEvent"} exact component={CreateEvent} />
           <Route
             path={"/createMeeting/:createMeeting"}
