@@ -12,6 +12,9 @@ function CreateEvent() {
   const [description, setDescription] = useState("");
   let token = localStorage.getItem("auth-token");
   const [date, setDate] = useState(new Date());
+  const [venue, setVenue] = useState("");
+  const [link, setLink] = useState("");
+  const [price, setPrice] = useState("");
   const handleSubmit = async (e) => {
     e.preventDefault();
     await axios
@@ -21,6 +24,9 @@ function CreateEvent() {
           name,
           description,
           date,
+          link,
+          venue,
+          price,
         },
         {
           headers: { "x-auth-token": token },
@@ -67,7 +73,36 @@ function CreateEvent() {
                 }}
               />
             </div>
-            <button type="submit">Create</button>
+            <div>Venue</div>
+            <input
+              className="textarea"
+              type="text"
+              value={venue}
+              onChange={(e) => {
+                setVenue(e.target.value);
+              }}
+            ></input>
+            <div>Link</div>
+            <input
+              className="textarea"
+              type="text"
+              value={link}
+              onChange={(e) => {
+                setLink(e.target.value);
+              }}
+            ></input>
+            <div>Price</div>
+            <input
+              className="textarea"
+              type="text"
+              value={price}
+              onChange={(e) => {
+                setPrice(e.target.value);
+              }}
+            ></input>
+            <div>
+              <button type="submit">Create</button>
+            </div>
           </form>
         </div>
       </div>

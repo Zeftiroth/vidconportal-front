@@ -44,6 +44,8 @@ function JoinEvent() {
                       <div>Event: {eventList.name}</div>
                       <div>Description: {eventList.description}</div>
                       <div>Date: {Date(eventList.date)}</div>
+                      <div>Price: {eventList.price}</div>
+                      <div>Venue: {eventList.venue}</div>
                       <div>
                         <button id={eventList._id} onClick={sendToPayment}>
                           Attend Event
