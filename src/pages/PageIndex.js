@@ -65,22 +65,28 @@ function PageIndex() {
   const redirectAdminList = () => {
     history.push("/adminList");
   };
+  const redirectReporting = () => {
+    history.push("/reporting");
+  };
+  const redirectParticipantList = () => {
+    history.push("/exhibitorList");
+  };
 
   return (
     <div>
       <div>
         <div>This is the index page</div>
-        <div onClick={redirectAdmin}>
-          <a>Admin</a>
-        </div>
-        <div onClick={redirectCreateAdmin}>
-          <a>Create Admin</a>
-        </div>
         <div onClick={redirectUserRegistration}>
           <a>User Registration</a>
         </div>
-        <div onClick={redirectUserLogin}>
-          <a>User Login</a>
+        <div onClick={redirectUserProfile}>
+          <a>User Profile</a>
+        </div>
+        {/* <div onClick={redirectUserEdit}>
+          <a>User Edit</a>
+        </div> */}
+        <div onClick={redirectUserList}>
+          <a>User List</a>
         </div>
         <div onClick={redirectParticipantRegistration}>
           <a>Participant Registration</a>
@@ -91,6 +97,20 @@ function PageIndex() {
         <div onClick={redirectParticipantProfile}>
           <a>Participant Profile</a>
         </div>
+        <div onClick={redirectParticipantList}>
+          <a>Participant List</a>
+        </div>
+
+        <div onClick={redirectAdmin}>
+          <a>Admin</a>
+        </div>
+        <div onClick={redirectCreateAdmin}>
+          <a>Create Admin</a>
+        </div>
+        <div onClick={redirectUserLogin}>
+          <a>User Login</a>
+        </div>
+
         <div onClick={redirectEventList}>
           <a>Event List</a>
         </div>
@@ -112,20 +132,15 @@ function PageIndex() {
         <div onClick={redirectAuthRouting}>
           <a>Auth Routing</a>
         </div>
-        <div onClick={redirectUserProfile}>
-          <a>User Profile</a>
-        </div>
-        <div onClick={redirectUserEdit}>
-          <a>User Edit</a>
-        </div>
-        <div onClick={redirectUserList}>
-          <a>User List</a>
-        </div>
+
         <div onClick={redirectAdminLogin}>
           <a>Admin Login</a>
         </div>
         <div onClick={redirectAdminList}>
           <a>Admin List</a>
+        </div>
+        <div onClick={redirectReporting}>
+          <a>Reporting</a>
         </div>
       </div>
     </div>

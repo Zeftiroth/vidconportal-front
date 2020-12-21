@@ -16,6 +16,7 @@ function PaymentEvent(props) {
   let eventID = props.match.params.paymentEvent;
   let token = localStorage.getItem("auth-token");
   let { loginData, setLoginData } = useContext(LoginContext);
+  console.log(loginData);
   const [eventDetails, setEventDetails] = useState([]);
   const fetchEvent = async () => {
     await axios
@@ -32,7 +33,7 @@ function PaymentEvent(props) {
     await axios
       .post(
         process.env.REACT_APP_BACKEND_URL + `exhibitions/payment`,
-        { token, eventDetails, sender: loginData.data.data },
+        { token, eventDetails, sender: loginData.data },
         {
           headers: { "x-auth-token": token },
         }
@@ -58,6 +59,8 @@ function PaymentEvent(props) {
               <div>Event Name: {eventDetails.name}</div>
               <div>Description: {eventDetails.description}</div>
               <div>Date of Event: {Date(eventDetails.date)}</div>
+              <div>Price: {eventDetails.price}</div>
+              <div>Venue: {eventDetails.venue}</div>
             </div>
           </>
           {/* ) : (
@@ -74,7 +77,7 @@ function PaymentEvent(props) {
             name={eventDetails.name}
             billingAddress
             shippingAddress
-            panelLabel="Test panel"
+            panelLabel="RM"
             alipay
             bitcoin
           >
