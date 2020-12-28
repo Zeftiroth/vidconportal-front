@@ -5,8 +5,8 @@ import _ from "lodash";
 import axios from "axios";
 import LoginContext from "../../context/LoginContext";
 
-function UserList() {
-  const [userList, setUserList] = useState([]);
+function ExhibitorList() {
+  const [exhiList, setExhiList] = useState([]);
   const userInfo = useSelector((state) => state.userInfo);
   console.log(userInfo);
   let { loginData, setLoginData } = useContext(LoginContext);
@@ -17,7 +17,7 @@ function UserList() {
   const FetchUserList = async () => {
     await axios
       .get(
-        process.env.REACT_APP_BACKEND_URL + "users"
+        process.env.REACT_APP_BACKEND_URL + "exhibitors"
         // , {
         //     headers: { "x-auth-token": token },
         // }
@@ -25,7 +25,7 @@ function UserList() {
       .then((res) => {
         console.log(res.data);
         let tempData = res.data;
-        setUserList(tempData);
+        setExhiList(tempData);
       })
       .catch((err) => {
         console.log(err.message);
@@ -40,7 +40,7 @@ function UserList() {
     console.log(e.target.id);
     let delID = e.target.id;
     await axios
-      .delete(process.env.REACT_APP_BACKEND_URL + `users/delete`, {
+      .delete(process.env.REACT_APP_BACKEND_URL + `exhibitors/delete`, {
         headers: { "x-auth-token": token },
 
         params: { user: delID },
@@ -52,25 +52,30 @@ function UserList() {
         console.log(err.message);
       });
   };
-  const handleEdit = (e) => {
-    history.push(`/userProfile/${e.target.id}`);
+
+  const handleRedirect = (e) => {
+    e.preventDefault();
+    history.push(`/participantProfile/${e.target.id}`);
   };
   return (
     <>
       <div>
         <div>User List</div>
         <div>
-          {!_.isEmpty(userList) ? (
-            userList.map((user) => {
+          {!_.isEmpty(exhiList) ? (
+            exhiList.map((user) => {
               return (
                 <>
                   <div id={user._id}>
                     {user.username}
-                    <button id={user._id} onClick={handleEdit}>
-                      Edit
-                    </button>{" "}
+
                     <button id={user._id} onClick={handleDelete}>
                       Delete
+                    </button>
+                  </div>
+                  <div>
+                    <button id={user._id} onClick={handleRedirect}>
+                      Profile
                     </button>
                   </div>
                 </>
@@ -87,4 +92,4 @@ function UserList() {
   );
 }
 
-export default UserList;
+export default ExhibitorList;

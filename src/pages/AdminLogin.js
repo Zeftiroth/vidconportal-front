@@ -42,6 +42,7 @@ function AdminLogin() {
   };
 
   return (
+
       <section className="blog-details-page">
         <Container>
           <Row>
@@ -50,6 +51,7 @@ function AdminLogin() {
 		<br/><center> <img src={logoImage} alt=""  /></center><br/>
 		 <h3>Login to Admin Dashboard</h3>
 		 <form onSubmit={handleSubmit}>
+
           <div>Admin Email</div>
           <input className="form-control"
             type="text"

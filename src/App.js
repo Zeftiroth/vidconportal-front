@@ -15,6 +15,7 @@ import Features from "./pages/Features";
 import ContactUs from "./pages/ContactUs";
 
 import Navbar from "./components/Navbar";
+import HeaderOne from "./components/header-one";
 import AdminContext from "./context/LoginContext";
 import axios from "axios";
 import UserRegister from "./pages/user/UserRegister";
@@ -36,6 +37,10 @@ import EventDetails from "./pages/event/EventDetails";
 import EditEvent from "./pages/event/EditEvent";
 import JoinEvent from "./pages/event/JoinEvent";
 import PaymentEvent from "./pages/event/PaymentEvent";
+import PageIndex from "./pages/PageIndex";
+import Reporting from "./pages/reporting/Reporting";
+import ExhibitorList from "./pages/exhibitor/exhibitorList";
+import ParticipantProfile from "./pages/exhibitor/participantProfile";
 
 function App() {
   let [toggle, setToggle] = useState(false);
@@ -195,14 +200,18 @@ function App() {
   };
   return (
     <div className="App">
+      {/* <HeaderOne /> */}
       <AdminContext.Provider value={{ loginData, setLoginData }}>
-      
         <Switch>
           <Route exact path={"/"} exact component={LandingPage} />
+
 		     <Route exact path={"/Login"} exact component={Login} />
 			  <Route exact path={"/AboutUs"} exact component={AboutUs} />
 			  <Route exact path={"/Features"} exact component={Features} />
 			    <Route exact path={"/ContactUs"} exact component={ContactUs} />
+
+          <Route path={"/index"} exact component={PageIndex} />
+
           <Route path={"/admin"} exact component={Admin} />
           <Route path={"/createAdmin"} exact component={CreateAdmin} />
           <Route path={"/userRegister"} exact component={UserRegister} />
@@ -212,11 +221,17 @@ function App() {
             exact
             component={ExhibitorRegister}
           />
+          <Route path={"/exhibitorList"} exact component={ExhibitorList} />
           <Route path={"/exhibitorLogin"} exact component={ExhibitorLogin} />
           <Route
             path={"/exhibitorProfile"}
             exact
             component={ExhibitorProfile}
+          />
+          <Route
+            path={"/participantProfile/:id"}
+            exact
+            component={ParticipantProfile}
           />
           <Route path={`/editEvent/:editEvent`} exact component={EditEvent} />
           <Route path={"/eventList"} exact component={EventList} />
@@ -227,6 +242,7 @@ function App() {
             exact
             component={CreateMeeting}
           />
+          <Route path={"/reporting"} exact component={Reporting} />
           <Route
             path={"/paymentEvent/:paymentEvent"}
             exact
@@ -237,7 +253,7 @@ function App() {
           <Route path={"/meetingList"} exact component={MeetingList} />
           <Route path={"/exhibitorEdit"} exact component={ExhibitorEdit} />
           <Route path={"/authRouting"} exact component={AuthRouting} />
-          <Route path={"/userProfile"} exact component={UserProfile} />
+          <Route path={"/userProfile/:id"} exact component={UserProfile} />
           <Route path={"/userEdit"} exact component={UserEdit} />
           <Route path={"/userList"} exact component={UserList} />
           <Route path={"/adminLogin"} exact component={AdminLogin} />
