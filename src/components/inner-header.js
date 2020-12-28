@@ -66,7 +66,7 @@ const InnerHeader = () => {
             <NavLinksInner />
           </div>
           <div className="right-side-box">
-            <a href="#" style={{backgroundColor:'#F58220',color: 'white'}} className="header-btn">
+            <a href="/Login" style={{backgroundColor:'#F58220',color: 'white'}} className="header-btn">
               Login
             </a>
           </div>

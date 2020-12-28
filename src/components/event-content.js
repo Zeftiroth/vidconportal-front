@@ -50,8 +50,8 @@ const EventContent = () => {
             and the like.
           </p>
 		  <br/>
-		   <form action="#" className="comment-form">
-		       <button type="submit">Register Now</button>
+		   <form action="/JoinEvent" className="comment-form">
+		     <a href="/JoinEvent">  <button type="submit">Register Now</button></a>
 			   </form>
         </div>
       </div>

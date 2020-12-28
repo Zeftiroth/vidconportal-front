@@ -12,7 +12,7 @@ import InnerHeader from "../../components/inner-header";
 import PageHeader from "../../components/page-header";
 import EventContent from "../../components/event-content";
 
-import Sidebar from "../../components/sidebar";
+
 import Footer from "../../components/footer";
 
 function EventDetails() {
@@ -55,12 +55,10 @@ function EventDetails() {
       <section className="blog-details-page">
         <Container>
           <Row>
-            <Col lg={8}>
+            <Col lg={12}>
               <EventContent />
             </Col>
-            <Col lg={4}>
-              <Sidebar />
-            </Col>
+           
           </Row>
         </Container>
       </section>
