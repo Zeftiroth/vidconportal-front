@@ -28,6 +28,7 @@
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0",
+    "stripe": "^8.129.0",
     "swiper": "^6.3.5",
     "typeface-roboto": "^1.1.13",
     "uuid": "^8.3.1",

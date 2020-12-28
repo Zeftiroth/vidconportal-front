@@ -11,7 +11,7 @@ function Admin() {
   return (
     <div className="mx-auto">
       <div>
-        {loginData.data ? (
+        {/* {loginData.data ? ( */}
           <div>
             <div>
               <Link to={`/createAdmin`}>Create Admin</Link>
@@ -26,9 +26,9 @@ function Admin() {
               <Link to={`/exhibitorList`}>Exhibitor List</Link>
             </div>
           </div>
-        ) : (
+        {/* ) : (
           <LandingPage />
-        )}
+        )} */}
       </div>
     </div>
   );
