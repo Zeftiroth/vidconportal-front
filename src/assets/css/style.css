@@ -13,6 +13,18 @@ a:visited {
   text-decoration: none;
 }
 
+.btn-primary
+{
+	background-color:#f58220;
+	border-color:#f58220;
+}
+.btn-white
+{
+	background-color:#668696;
+	border-color:#668696;
+	color:#fff;
+}
+
 .page-wrapper {
   position: relative;
   margin: 0 auto;
@@ -1068,7 +1080,7 @@ hr.style-one {
 }
 
 .blog-details-page {
-  padding: 120px 0;
+  padding: 50px 0;
 }
 .blog-details-page .single-blog-style-one {
   margin-bottom: 0;
@@ -1768,17 +1780,17 @@ hr.style-one {
 * 11.features styles
 */
 .feature-style-one {
-  padding-top: 90px;
+  padding-top: 0px;
   background: #ffffff url(../images/bg-curve-1-2.png) center top no-repeat;
   background-size: cover;
   margin-top: -10px;
   
 }
 .feature-style-one .container {
-  padding-bottom: 120px;
+  padding-bottom: 50px;
 }
 .feature-style-one .container hr.style-one {
-  margin-bottom: 130px;
+  margin-bottom: 30px;
 }
 .feature-style-one .image-block {
   margin-top: -50px;
@@ -1928,7 +1940,7 @@ hr.style-one {
   transition: all 0.4s ease;
 }
 .feature-style-two .content-block .feature-btn:hover {
-  background-color: #F58220;
+  background-color: ##A0B4BE;
   color: #fff;
   border-color: #F58220;
 }
@@ -1974,7 +1986,7 @@ hr.style-one {
   bottom: 25%;
   left: 50%;
   transform: translate(-50%, -100%);
-  background-color: #ca00ca;
+  background-color: #668696;
   z-index: 8;
   transition: all 0.4s ease;
 }
@@ -1990,16 +2002,16 @@ hr.style-one {
   bottom: 65%;
   left: 50%;
   transform: translate(-50%, -100%);
-  background-color: #8c00ca;
+  background-color: #668696;
   z-index: 10;
   transition: all 0.4s ease;
 }
 .services-style-one .single-service-one .hover-block:after {
-  background-color: #ab00ca;
+  background-color: #7E8298;
   bottom: 45%;
   left: 50%;
   transform: translate(-50%, -100%);
-  background-color: #ab00ca;
+  background-color: #A0B4BE;
   z-index: 9;
   transition: all 0.4s ease;
 }

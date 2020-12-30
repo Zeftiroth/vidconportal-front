@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import _ from "lodash";
 import LoginContext from "../../context/LoginContext";
-
+import { Container, Row, Col } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 
@@ -10,6 +10,8 @@ import Layout from "../../components/layout";
 import InnerHeader from "../../components/inner-header";
 import PageHeader from "../../components/page-header";
 import EventPage from "../../components/event-page";
+
+import Sidebar from "../../components/sidebar";
 import Footer from "../../components/footer";
 
 function EventList() {
@@ -49,7 +51,21 @@ function EventList() {
     <Layout>
       <InnerHeader />
       <PageHeader  title="Event Listing" crumbtext="All Events"/>
-      <EventPage />
+	  
+	   <section className="blog-details-page">
+        <Container>
+          <Row>
+            <Col lg={8}>
+             <EventPage />
+            </Col>
+            <Col lg={4}>
+              <Sidebar />
+            </Col>
+          </Row>
+        </Container>
+      </section>
+	  
+      
       <Footer />
     </Layout>
   );

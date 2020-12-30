@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
+import { Container, Row, Col } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import _ from "lodash";
 import LoginContext from "../context/LoginContext";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
+import logoImage from "../assets/images/logo.png";
 
 function AdminLogin() {
   const [adminEmail, setAdminEmail] = useState("");
@@ -40,24 +42,34 @@ function AdminLogin() {
   };
 
   return (
-    <div>
-      <div>
-        <div>Admin Login</div>
-        <form onSubmit={handleSubmit}>
+
+      <section className="blog-details-page">
+        <Container>
+          <Row>
+		   <Col lg={4}></Col>
+         <Col lg={4}> 
+		<br/><center> <img src={logoImage} alt=""  /></center><br/>
+		 <h3>Login to Admin Dashboard</h3>
+		 <form onSubmit={handleSubmit}>
+
           <div>Admin Email</div>
-          <input
+          <input className="form-control"
             type="text"
             value={adminEmail}
             onChange={handleEmailChange}
           ></input>
           <div>Password</div>
-          <input type="text" value={pass} onChange={handlePassChange}></input>
+          <input  className="form-control" type="text" value={pass} onChange={handlePassChange}></input>
           <div>
-            <button type="submit">Login</button>
+		  <br/>
+            <button type="submit" className="btn btn-white btn-block">Login</button>
           </div>
         </form>
-      </div>
-    </div>
+		</Col>
+       <Col lg={4}></Col>
+	   </Row>
+        </Container>
+      </section>
   );
 }
 

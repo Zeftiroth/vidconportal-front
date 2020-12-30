@@ -10,31 +10,20 @@ const NavLinks = () => {
         <a href="/" Class="current"> Home</a>
         </li>
       <li>
-        <a href="#" > About Us</a>
+        <a href="/AboutUs" > About Us</a>
       </li>
 	  <li>
-        <a href="#" > Features</a>
+        <a href="/Features" > Features</a>
       </li>
        <li>
-        <a href="#" >
+        <a href="/eventList" >
           Events
-          <SubNavToggler />
+          
      </a>
-        <ul className="sub-menu">
-          <li>
-            <a href="#">
-              Event Calendar</a>
-           
-          </li>
-          <li>
-            <a href="/eventList">
-              All Events</a>
-           
-          </li>
-        </ul>
+      
       </li>
       <li>
-        <a href="#" > Contacts</a>
+        <a href="/ContactUs" > Contacts</a>
       </li>
     </ul>
   );

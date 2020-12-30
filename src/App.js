@@ -9,6 +9,11 @@ import AdminList from "./pages/AdminList";
 import EditAdmin from "./pages/EditAdmin";
 import AdminLogin from "./pages/AdminLogin";
 import LandingPage from "./pages/LandingPage";
+import Login from "./pages/Login";
+import AboutUs from "./pages/AboutUs";
+import Features from "./pages/Features";
+import ContactUs from "./pages/ContactUs";
+
 import Navbar from "./components/Navbar";
 import HeaderOne from "./components/header-one";
 import AdminContext from "./context/LoginContext";
@@ -199,7 +204,14 @@ function App() {
       <AdminContext.Provider value={{ loginData, setLoginData }}>
         <Switch>
           <Route exact path={"/"} exact component={LandingPage} />
+
+		     <Route exact path={"/Login"} exact component={Login} />
+			  <Route exact path={"/AboutUs"} exact component={AboutUs} />
+			  <Route exact path={"/Features"} exact component={Features} />
+			    <Route exact path={"/ContactUs"} exact component={ContactUs} />
+
           <Route path={"/index"} exact component={PageIndex} />
+
           <Route path={"/admin"} exact component={Admin} />
           <Route path={"/createAdmin"} exact component={CreateAdmin} />
           <Route path={"/userRegister"} exact component={UserRegister} />
@@ -223,7 +235,7 @@ function App() {
           />
           <Route path={`/editEvent/:editEvent`} exact component={EditEvent} />
           <Route path={"/eventList"} exact component={EventList} />
-		    <Route path={"/eventDetails"} exact component={EventDetails} />
+		  <Route path={"/eventDetails"} exact component={EventDetails} />
           <Route path={"/createEvent"} exact component={CreateEvent} />
           <Route
             path={"/createMeeting/:createMeeting"}
