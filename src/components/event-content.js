@@ -50,7 +50,7 @@ const EventContent = () => {
             and the like.
           </p>
 		  <br/>
-		   <form action="#" className="comment-form">
+		   <form action="FrontJoinEvent" className="comment-form">
 		       <button type="submit">Register Now</button>
 			   </form>
         </div>

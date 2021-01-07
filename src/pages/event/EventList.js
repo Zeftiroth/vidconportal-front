@@ -6,11 +6,7 @@ import LoginContext from "../../context/LoginContext";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 
-import Layout from "../../components/layout";
-import InnerHeader from "../../components/inner-header";
-import PageHeader from "../../components/page-header";
-import EventPage from "../../components/event-page";
-import Footer from "../../components/footer";
+
 
 function EventList() {
   const [list, setList] = useState([]);
@@ -46,12 +42,13 @@ function EventList() {
     return date;
   };
   return (
-    <Layout>
-      <InnerHeader />
-      <PageHeader  title="Event Listing" crumbtext="All Events"/>
-      <EventPage />
-      <Footer />
-    </Layout>
+    <div>
+      <div>
+        <div>List of Event:</div>
+        </div>
+      </div>
+    
+		
   );
 }
 

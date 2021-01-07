@@ -32,7 +32,7 @@ const BannerOne = () => {
               <Countdown date={`${year}-12-24T00:00:00`} />
             </div>
             <a
-              href="#"
+              href="FrontEventDetails"
               class="header-btn BtnView"
               style={{ backgroundcolor: "#668696", color: "white" }}
             >
