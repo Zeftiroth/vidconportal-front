@@ -64,7 +64,7 @@ const EventPage = () => {
         <Row>
           {EVENT_DATA.map(
             ({ image, update, date, time, title, text, link }, index) => (
-              <Col key={`event-card-${index}`} lg={4} md={6} sm={12}>
+              <Col key={`event-card-${index}`} lg={6} md={6} sm={12}>
                 <BlogCard
                   image={image}
                   update={update}
@@ -78,6 +78,7 @@ const EventPage = () => {
             )
           )}
         </Row>
+		<br/>
         <EventPagination />
       </Container>
     </section>

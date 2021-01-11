@@ -28,11 +28,11 @@ const Footer = () => {
                     <h3>Address</h3>
                   </div>
                   <ul className="contact-list">
-                    <li>888 999 0000</li>
-                    <li>needhelp@opins.com</li>
+                    <li><i class="fa fa-phone"></i> 888 999 0000</li>
+                    <li><i class="fa fa-envelope"></i> info@ksi.com</li>
                     <li>
-                      855 road, broklyn street <br />
-                      new york 600
+                      855 road, broklyn street, <br />
+                      Malaysia 600
                     </li>
                   </ul>
                 </div>

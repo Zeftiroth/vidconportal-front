@@ -1,10 +1,16 @@
 import React, { useState, useEffect, useContext } from "react";
+import { Container, Row, Col } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import _ from "lodash";
 import LoginContext from "../../context/LoginContext";
 
 import { useHistory } from "react-router-dom";
 import axios from "axios";
+
+import Layout from "../../components/layout";
+import InnerHeader from "../../components/inner-header";
+import PageHeader from "../../components/page-header";
+import Footer from "../../components/footer";
 
 function JoinEvent() {
   const [list, setList] = useState([]);
@@ -31,6 +37,7 @@ function JoinEvent() {
 
   let history = useHistory();
   return (
+
     <div>
       <div>
         <div>List of Event:</div>
@@ -64,6 +71,7 @@ function JoinEvent() {
       </div>
     </div>
   );
+
 }
 
 export default JoinEvent;

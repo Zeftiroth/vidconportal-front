@@ -2,10 +2,9 @@ import React, { useState, useEffect, useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import _ from "lodash";
 import LoginContext from "../../context/LoginContext";
-
+import { Container, Row, Col } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
-
 
 
 function EventList() {

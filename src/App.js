@@ -218,6 +218,7 @@ function App() {
 			<Route exact path={"/Login"} exact component={FrontLogin} />
 		  
           <Route path={"/index"} exact component={PageIndex} />
+
           <Route path={"/admin"} exact component={Admin} />
           <Route path={"/createAdmin"} exact component={CreateAdmin} />
           <Route path={"/userRegister"} exact component={UserRegister} />
