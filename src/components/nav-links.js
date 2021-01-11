@@ -16,7 +16,7 @@ const NavLinks = () => {
         <a href="/Features" > Features</a>
       </li>
        <li>
-        <a href="/eventList" >
+        <a href="/FronteventList" >
           Events
           
      </a>

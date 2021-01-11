@@ -4,6 +4,22 @@ import { useDispatch, useSelector } from "react-redux";
 import _ from "lodash";
 import {AddAdmin} from "../actions/adminActions"
 
+import { Container, Row, Col } from "react-bootstrap";
+import "typeface-roboto";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "../assets/css/opins-icon.css";
+import "../assets/css/animate.css";
+import "../assets/css/font-awesome.min.css";
+import "../assets/css/style.css";
+import "../assets/css/responsive.css";
+import "swiper/swiper-bundle.min.css";
+
+import Layout from "../components/layout";
+import InnerHeader from "../components/inner-header";
+import PageHeader from "../components/page-header";
+import Footer from "../components/footer";
+
+
 function CreateAdmin() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -73,39 +89,69 @@ function CreateAdmin() {
         setConfirmPassword("");
   };
   return (
-    <div className="d-flex justify-content-center pt-5">
-      <div>
-        <form onSubmit={handleSubmit}>
-          <div>First Name</div>
-          <input
+   <Layout>
+      <InnerHeader />
+      <PageHeader  title="New User" crumbtext="Registration"/>
+	     <section className="blog-details-page">
+       <Container>
+          <Row>
+		   <Col lg={4}></Col>
+            <Col lg={4}>
+        <form onSubmit={handleSubmit} style={{backgroundColor:'#668696',color: 'white', padding:'15px'}}>
+  <div className="form-group">
+                    <label>First Name</label>         
+		
+          <input className="form-control" placeholder="Enter First Name"
             value={firstName}
             type="text"
             onChange={handleFirstNameInput}
           />
-          <div> Last Name </div>
-          <input value={lastName} type="text" onChange={handleLastNameInput} />
-          <div> Email </div>
-          <input value={email} type="text" onChange={handleEmailInput} />
-          <div> Password</div>
-          <input value={password} type="text" onChange={handlePasswordInput} />
-          <div> Confirm Password </div>
-          <input
+		  </div>
+		   <div className="form-group">
+                    <label>Last Name</label>   
+        
+          <input className="form-control" placeholder="Enter Last Name" value={lastName} type="text" onChange={handleLastNameInput} />
+		  </div>
+		   <div className="form-group">
+                    <label>Email</label>   
+               <input className="form-control" placeholder="Enter Email" value={email} type="text" onChange={handleEmailInput} />
+		  </div>
+		   <div className="form-group">
+                    <label>Password</label>   
+           <input className="form-control" placeholder="Enter Password" value={password} type="text" onChange={handlePasswordInput} />
+		  </div>
+		  <div className="form-group">
+                    <label>Confirm Password</label>   
+                 <input className="form-control" placeholder="Enter Confirm Password"
             value={confirmPassword}
             type="text"
             onChange={handleConfirmPasswordInput}
           />
-          <div> Department </div>
-          <input
+		  </div>
+		    <div className="form-group">
+                    <label>Department</label>  
+         
+          <input className="form-control" placeholder="Enter Department"
             value={department}
             type="text"
             onChange={(e) => setDepartment(e.target.value)}
           />
+		  </div>
           <div>
-            <button>Create Admin</button>
+            <button type="submit" className="btn btn-primary btn-block">Create Admin</button>
           </div>
         </form>
-      </div>
-    </div>
+     </Col>
+	 
+	   <Col lg={4}>
+	    </Col>
+	 
+	 </Row>
+	
+	 </Container>
+	  </section>
+      <Footer />
+    </Layout>
   );
 }
 

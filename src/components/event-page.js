@@ -12,7 +12,7 @@ const EVENT_DATA = [
     date: "30 december, 2020",
     time: "10.30 AM",
     title: "Lorem Ipsum is simply dummy text of the printing and  ",
-    link: "/eventDetails"
+    link: "/FrontEventDetails"
   },
   {
      image: eventImage1,
@@ -20,7 +20,7 @@ const EVENT_DATA = [
     date: "30 december, 2020",
     time: "10.30 AM",
     title: "Lorem Ipsum is simply dummy text of the printing and  ",
-    link: "/eventDetails"
+    link: "/FrontEventDetails"
   },
   {
      image: eventImage1,
@@ -28,7 +28,7 @@ const EVENT_DATA = [
     date: "30 december, 2020",
     time: "10.30 AM",
     title: "Lorem Ipsum is simply dummy text of the printing and  ",
-    link: "/eventDetails"
+    link: "/FrontEventDetails"
   },
   {
     image: eventImage1,
@@ -44,7 +44,7 @@ const EVENT_DATA = [
     date: "30 december, 2020",
     time: "10.30 AM",
     title: "Lorem Ipsum is simply dummy text of the printing and  ",
-    link: "/eventDetails"
+    link: "/FrontEventDetails"
   },
   {
      image: eventImage1,
@@ -52,7 +52,7 @@ const EVENT_DATA = [
     date: "30 december, 2020",
     time: "10.30 AM",
     title: "Lorem Ipsum is simply dummy text of the printing and  ",
-    link: "/"
+    link: "/FrontEventDetails"
   }
 ];
 

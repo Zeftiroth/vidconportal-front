@@ -6,6 +6,22 @@ import LoginContext from "../../context/LoginContext";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 
+import { Container, Row, Col } from "react-bootstrap";
+import "typeface-roboto";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "../../assets/css/opins-icon.css";
+import "../../assets/css/animate.css";
+import "../../assets/css/font-awesome.min.css";
+import "../../assets/css/style.css";
+import "../../assets/css/responsive.css";
+import "swiper/swiper-bundle.min.css";
+
+import Layout from "../../components/layout";
+import InnerHeader from "../../components/inner-header";
+import PageHeader from "../../components/page-header";
+import Footer from "../../components/footer";
+
+
 function ExhibitorRegister() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -87,101 +103,144 @@ function ExhibitorRegister() {
   };
 
   return (
-    <div>
-      <div>
-        <div>Register new exhibitor account</div>
-        <form onSubmit={handleSubmit}>
-          <div>Username</div>
-          <input
+    <Layout>
+      <InnerHeader />
+      <PageHeader  title="New User" crumbtext="Registration"/>
+	     <section className="blog-details-page">
+       <Container>
+          <Row>
+		   <Col lg={4}></Col>
+            <Col lg={4}>
+        <form onSubmit={handleSubmit} style={{backgroundColor:'#668696',color: 'white', padding:'15px'}}>
+		 <h3>Register new exhibitor account</h3>
+		   <div className="form-group">
+                    <label>Username</label>
+        
+          <input className="form-control" placeholder="Enter UserName"
             value={username}
             type="text"
             onChange={(e) => {
               setUsername(e.target.value);
             }}
           />
+		  </div>
+ <div className="form-group">
+                    <label>Email</label>
 
-          <div> Email </div>
-          <input
+          <input className="form-control" placeholder="Enter Email"
             value={email}
             type="text"
             onChange={(e) => {
               setEmail(e.target.value);
             }}
           />
-          <div> Password</div>
-          <input
+		  </div>
+		   <div className="form-group">
+                    <label>Password</label>
+        
+          <input className="form-control" placeholder="Enter Password"
             value={password}
             type="text"
             onChange={(e) => {
               setPassword(e.target.value);
             }}
           />
-          <div> Confirm Password </div>
-          <input
+		  </div>
+		     <div className="form-group">
+                    <label>Confirm Password</label>
+     
+          <input className="form-control" placeholder="Enter Confirm Password"
             value={passwordConfirm}
             type="text"
             onChange={(e) => {
               setPasswordConfirm(e.target.value);
             }}
           />
-          <div> Name </div>
-          <input
+		  </div>
+		     <div className="form-group">
+                    <label>Name</label>
+         
+          <input className="form-control" placeholder="Enter Name"
             value={name}
             type="text"
             onChange={(e) => {
               setName(e.target.value);
             }}
           />
-          <div> Organization </div>
-          <input
+		  </div>
+		     <div className="form-group">
+                    <label>Organization</label>
+      
+          <input className="form-control" placeholder="Enter Organization"
             value={organization}
             type="text"
             onChange={(e) => {
               setOrganization(e.target.value);
             }}
           />
-          <div> Designation </div>
-          <input
+		  </div>
+		  <div className="form-group">
+                    <label>Designation</label>
+        
+          <input className="form-control" placeholder="Enter Designation"
             value={designation}
             type="text"
             onChange={(e) => {
               setDesignation(e.target.value);
             }}
           />
-          <div> Address </div>
-          <input
+		  </div>
+		  
+		   <div className="form-group">
+                    <label>Address</label>
+          <input className="form-control" placeholder="Enter Address"
             value={address}
             type="text"
             onChange={(e) => {
               setAddress(e.target.value);
             }}
           />
-          <div> Office Number </div>
-          <input
+		  </div>
+		  
+		    <div className="form-group">
+                    <label> Office Number</label>
+
+          <input className="form-control" placeholder="Enter Office Number"
             value={office}
             type="text"
             onChange={(e) => {
               setOffice(e.target.value);
             }}
           />
-          <div> Mobile Number </div>
-          <input
+		  </div>
+		     <div className="form-group">
+                    <label> Mobile Number</label>
+          
+          <input className="form-control" placeholder="Enter  Mobile Number"
             value={mobile}
             type="text"
             onChange={(e) => {
               setMobile(e.target.value);
             }}
           />
-          <div> Fax Number</div>
-          <input
+		  </div>
+		  
+		    <div className="form-group">
+                    <label> Fax Number</label>
+          <div> </div>
+          <input className="form-control" placeholder="Enter Fax Number"
             value={fax}
             type="text"
             onChange={(e) => {
               setFax(e.target.value);
             }}
           />
-          <div> Diet</div>
-          <select
+		  </div>
+		  
+		    <div className="form-group">
+                    <label>Diet</label>
+         
+          <select className="form-control" placeholder="Enter Diet"
            
             
             value={diet}
@@ -203,18 +262,27 @@ function ExhibitorRegister() {
             </option>
             
           </select>
-
+</div>
           <div></div>
           <div></div>
           <div></div>
           <div></div>
 
           <div>
-            <button>Sign Up</button>
+            <button type="submit" className="btn btn-primary btn-block">Sign Up</button>
           </div>
         </form>
-      </div>
-    </div>
+      </Col>
+	 
+	   <Col lg={4}>
+	    </Col>
+	 
+	 </Row>
+	
+	 </Container>
+	  </section>
+      <Footer />
+    </Layout>
   );
 }
 
