@@ -5,6 +5,23 @@ import { GetAdminList } from "../actions/adminActions";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
+import { Container, Row, Col } from "react-bootstrap";
+import "typeface-roboto";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "../assets/css/opins-icon.css";
+import "../assets/css/animate.css";
+import "../assets/css/font-awesome.min.css";
+import "../assets/css/style.css";
+import "../assets/css/responsive.css";
+import "swiper/swiper-bundle.min.css";
+
+import Layout from "../components/layout";
+import InnerHeader from "../components/inner-header";
+import PageHeader from "../components/page-header";
+import Footer from "../components/footer";
+
+import Table from 'react-bootstrap/Table';
+
 function AdminList() {
   const dispatch = useDispatch();
   const adminList = useSelector((state) => state.adminL);
@@ -45,11 +62,18 @@ function AdminList() {
             return (
               <div>
                 <div>
+				<tr><td>
                   {admin.adminName.firstName} {admin.adminName.lastName}{" "}
+				  </td>
+				  <td>
                   <Link to={`/editAdmin/${admin._id}`}>Edit</Link>{" "}
+				  </td>
+				  <td>
                   <Link id={admin._id} onClick={handleAdminDelete}>
                     Delete
                   </Link>
+				  </td>
+				  </tr>
                 </div>
               </div>
             );
@@ -62,18 +86,44 @@ function AdminList() {
     }
 
     if (adminList.loading) {
-      return <p>Loading...</p>;
+      return  <tr colspan="3"> <td><p>Loading...</p></td> </tr>;
     }
 
     if (adminList.error !== "") {
-      return <p>{adminList.error}</p>;
-    } else return <p>no admin found</p>;
+      return <tr colspan="3"> <td><p>{adminList.error}</p></td> </tr>;
+    } else return <tr colspan="3"><td><p>no admin found</p></td> </tr>;
   };
   return (
-    <div>
-      <div>Admin List</div>
+    
+	<Layout>
+      <InnerHeader />
+      <PageHeader  title="Participant List" crumbtext="Participants"/>
+     <section className="blog-details-page">
+       <Container>
+          <Row>
+		   <Col lg={12}>
+        <h3>Admin List</h3>
+     <Table striped bordered hover responsive>
+<thead>
+    <tr>
+      <th>Admin Name</th>
+      <th>Action</th>
+      <th>View</th>
+    </tr>
+  </thead>
+
       <div>{showAdminList()}</div>
-    </div>
+	 
+	    </Table>
+       </Col>
+	 
+	 </Row>
+	
+	 </Container>
+	  </section>
+	    <Footer />
+    </Layout>
+   
   );
 }
 
