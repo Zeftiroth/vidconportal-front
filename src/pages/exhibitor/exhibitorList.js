@@ -5,6 +5,24 @@ import _ from "lodash";
 import axios from "axios";
 import LoginContext from "../../context/LoginContext";
 
+
+import { Container, Row, Col } from "react-bootstrap";
+import "typeface-roboto";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "../../assets/css/opins-icon.css";
+import "../../assets/css/animate.css";
+import "../../assets/css/font-awesome.min.css";
+import "../../assets/css/style.css";
+import "../../assets/css/responsive.css";
+import "swiper/swiper-bundle.min.css";
+
+import Layout from "../../components/layout";
+import InnerHeader from "../../components/inner-header";
+import PageHeader from "../../components/page-header";
+import Footer from "../../components/footer";
+
+import Table from 'react-bootstrap/Table';
+
 function ExhibitorList() {
   const [exhiList, setExhiList] = useState([]);
   const userInfo = useSelector((state) => state.userInfo);
@@ -59,35 +77,59 @@ function ExhibitorList() {
   };
   return (
     <>
-      <div>
-        <div>User List</div>
-        <div>
+	<Layout>
+      <InnerHeader />
+      <PageHeader  title="Participant List" crumbtext="Participants"/>
+     <section className="blog-details-page">
+       <Container>
+          <Row>
+		   <Col lg={12}>
+        <h3>User List</h3>
+     <Table striped bordered hover responsive>
+<thead>
+    <tr>
+      <th>User Name</th>
+      <th>Action</th>
+      <th>View</th>
+    </tr>
+  </thead>
           {!_.isEmpty(exhiList) ? (
             exhiList.map((user) => {
               return (
-                <>
-                  <div id={user._id}>
-                    {user.username}
-
-                    <button id={user._id} onClick={handleDelete}>
-                      Delete
+              
+                <tr><td>  <div id={user._id}>
+                    {user.username}</div>
+                      </td>
+					  <td>
+                    <button id={user._id} onClick={handleDelete} className="btn btn-danger btn-block">
+                     <i class="fa fa-trash"></i> Delete
                     </button>
-                  </div>
+                  </td>
+				  <td>
                   <div>
-                    <button id={user._id} onClick={handleRedirect}>
-                      Profile
+                    <button id={user._id} onClick={handleRedirect} className="btn btn-success btn-block">
+                       <i class="fa fa-eye"></i> Profile
                     </button>
                   </div>
-                </>
+				  </td>
+                </tr>
               );
             })
           ) : (
-            <>
-              <div>Loading...</div>
-            </>
+           <tr><td colspan='3' align="center">
+             There is no data yet
+            </td>
+			</tr>
           )}
-        </div>
-      </div>
+		  </Table>
+       </Col>
+	 
+	 </Row>
+	
+	 </Container>
+	  </section>
+	    <Footer />
+    </Layout>
     </>
   );
 }
