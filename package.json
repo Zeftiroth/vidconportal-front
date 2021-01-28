@@ -58,5 +58,10 @@
   },
   "devDependencies": {
     "dotenv": "^8.2.0"
+  },
+  "engines": {
+    "npm": "6.13.7",
+    "node": "13.10.1"
   }
+
 }
