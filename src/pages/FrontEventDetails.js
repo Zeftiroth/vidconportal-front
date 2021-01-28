@@ -3,7 +3,6 @@ import { Container, Row, Col } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import _ from "lodash";
 
-
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 
@@ -12,12 +11,28 @@ import InnerHeader from "../components/inner-header";
 import PageHeader from "../components/page-header";
 import EventContent from "../components/event-content";
 
-
 import Footer from "../components/footer";
 
-function FrontEventDetails() {
-  const [list, setList] = useState([]);
+function FrontEventDetails(props) {
+  let eventID = props.match.params.FrontEventDetails;
   let token = localStorage.getItem("auth-token");
+  const [eventDetails, setEventDetails] = useState([]);
+  console.log({ "event details": eventDetails });
+  const fetchEvent = async () => {
+    await axios
+      .get(process.env.REACT_APP_BACKEND_URL + `exhibitions/${eventID}`, {
+        headers: { "x-auth-token": token },
+      })
+      .then((response) => {
+        console.log(response.data);
+        setEventDetails(response.data);
+      });
+  };
+  useEffect(() => {
+    fetchEvent();
+  }, []);
+  const [list, setList] = useState([]);
+
   const fetchEventList = async () => {
     await axios
       .get(process.env.REACT_APP_BACKEND_URL + `exhibitions`, {
@@ -49,7 +64,7 @@ function FrontEventDetails() {
     return date;
   };
   return (
-     <Layout>
+    <Layout>
       <InnerHeader />
       <PageHeader title="Event Details" crumbtext="Event Details" />
       <section className="blog-details-page">
@@ -58,7 +73,6 @@ function FrontEventDetails() {
             <Col lg={12}>
               <EventContent />
             </Col>
-           
           </Row>
         </Container>
       </section>

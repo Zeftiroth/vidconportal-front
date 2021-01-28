@@ -208,15 +208,30 @@ function App() {
       <AdminContext.Provider value={{ loginData, setLoginData }}>
         <Switch>
           <Route exact path={"/"} exact component={LandingPage} />
-		  
-		    <Route exact path={"/AboutUs"} exact component={AboutUs} />
-			<Route exact path={"/Features"} exact component={Features} />
-			<Route exact path={"/ContactUs"} exact component={ContactUs} />
-			<Route exact path={"/FrontEventList"} exact component={FrontEventList} />
-			<Route exact path={"/FrontEventDetails"} exact component={FrontEventDetails} />
-			<Route exact path={"/FrontJoinEvent"} exact component={FrontJoinEvent} />
-			<Route exact path={"/Login"} exact component={FrontLogin} />
-		  
+
+          <Route exact path={"/AboutUs"} exact component={AboutUs} />
+          <Route exact path={"/Features"} exact component={Features} />
+          <Route exact path={"/ContactUs"} exact component={ContactUs} />
+          <Route
+            exact
+            path={"/FrontEventList"}
+            exact
+            component={FrontEventList}
+          />
+          <Route
+            exact
+            path={"/FrontEventDetails/:id"}
+            exact
+            component={FrontEventDetails}
+          />
+          <Route
+            exact
+            path={"/FrontJoinEvent"}
+            exact
+            component={FrontJoinEvent}
+          />
+          <Route exact path={"/Login"} exact component={FrontLogin} />
+
           <Route path={"/index"} exact component={PageIndex} />
 
           <Route path={"/admin"} exact component={Admin} />
@@ -242,7 +257,7 @@ function App() {
           />
           <Route path={`/editEvent/:editEvent`} exact component={EditEvent} />
           <Route path={"/eventList"} exact component={EventList} />
-		   
+
           <Route path={"/createEvent"} exact component={CreateEvent} />
           <Route
             path={"/createMeeting/:createMeeting"}
