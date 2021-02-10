@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import moc from "../assets/images/banner-mock-up.png";
 import Countdown from "../components/Countdown";
+import { useHistory } from "react-router-dom";
 
 const currentDate = new Date();
 const year =
@@ -10,6 +11,13 @@ const year =
     : currentDate.getFullYear();
 
 const BannerOne = () => {
+  let history = useHistory();
+  const sendToReg = (e) => {
+    e.preventDefault();
+    console.log(e.target.id);
+    history.push(`exhibitorRegister`);
+  };
+
   return (
     <section className="banner-style-one" id="banner">
       <span className="bubble-1"></span>
@@ -22,7 +30,7 @@ const BannerOne = () => {
       {/*<img src={moc} className="banner-mock" alt="Awesome Image" />  */}
       <Container>
         <Row>
-          <Col xl={6} lg={8}>
+          {/* <Col xl={6} lg={8}>
             <div className="content-block Titleup">
               <h3>IBM Services Virtual Summit</h3>
               <span>
@@ -38,7 +46,8 @@ const BannerOne = () => {
             >
               View Events
             </a>
-          </Col>
+          </Col> */}
+          <Col></Col>
           <Col xl={6} lg={8}>
             <div class="main">
               <p class="sign" style={{ color: "#668696" }} align="center">
@@ -46,7 +55,7 @@ const BannerOne = () => {
                 <span style={{ color: "#F68321" }}>Register Today</span>
               </p>
               <form class="form1">
-                <input
+                {/* <input
                   class="pass "
                   type="text"
                   align="center"
@@ -63,13 +72,14 @@ const BannerOne = () => {
                   type="number"
                   align="center"
                   placeholder="Mobile Number"
-                ></input>
-                <a class="submit" align="center">
+                ></input> */}
+                <a class="submit" align="center" onClick={sendToReg}>
                   Sign Up
                 </a>
               </form>
             </div>
           </Col>
+          <Col></Col>
         </Row>
       </Container>
     </section>

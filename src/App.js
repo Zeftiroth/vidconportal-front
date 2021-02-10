@@ -265,11 +265,7 @@ function App() {
             component={CreateMeeting}
           />
           <Route path={"/reporting"} exact component={Reporting} />
-          <Route
-            path={"/paymentEvent/:paymentEvent"}
-            exact
-            component={PaymentEvent}
-          />
+          <Route path={"/paymentEvent/:id"} exact component={PaymentEvent} />
           <Route path={"/joinEvent"} exact component={JoinEvent} />
           <Route path={"/createEmail"} exact component={CreateEmail} />
           <Route path={"/meetingList"} exact component={MeetingList} />

@@ -28,8 +28,12 @@ const Footer = () => {
                     <h3>Address</h3>
                   </div>
                   <ul className="contact-list">
-                    <li><i class="fa fa-phone"></i> 888 999 0000</li>
-                    <li><i class="fa fa-envelope"></i> info@ksi.com</li>
+                    <li>
+                      <i class="fa fa-phone"></i> 888 999 0000
+                    </li>
+                    <li>
+                      <i class="fa fa-envelope"></i> info@ksi.com
+                    </li>
                     <li>
                       855 road, broklyn street, <br />
                       Malaysia 600
@@ -68,7 +72,7 @@ const Footer = () => {
                   </div>
                   <ul className="links-list">
                     <li>
-                      <a href="#">Help</a>
+                      <a href="/adminLogin">Admin Login</a>
                     </li>
                     <li>
                       <a href="#">Support</a>

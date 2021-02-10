@@ -50,10 +50,9 @@ const HeaderOne = () => {
         <div className="container clearfix">
           <div className="logo-box clearfix">
             <a href="/" className="navbar-brand">
-             
-                <img src={logoImage} alt=""  />
-              </a>
-            
+              <img src={logoImage} alt="" />
+            </a>
+
             <button className="menu-toggler">
               <span className="fa fa-bars"></span>
             </button>
@@ -63,7 +62,11 @@ const HeaderOne = () => {
             <NavLinks />
           </div>
           <div className="right-side-box">
-            <a href="/Login" style={{backgroundColor:'#F58220',color: 'white'}} className="header-btn">
+            <a
+              href="/exhibitorLogin"
+              style={{ backgroundColor: "#F58220", color: "white" }}
+              className="header-btn"
+            >
               Login
             </a>
           </div>

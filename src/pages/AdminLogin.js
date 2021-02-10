@@ -40,36 +40,58 @@ function AdminLogin() {
         console.log(err);
       });
   };
+  const sendToReg = (e) => {
+    e.preventDefault();
+    console.log(e.target.id);
+    history.push(`createAdmin`);
+  };
 
   return (
-
-      <section className="blog-details-page">
-        <Container>
-          <Row>
-		   <Col lg={4}></Col>
-         <Col lg={4}> 
-		<br/><center> <img src={logoImage} alt=""  /></center><br/>
-		 <h3>Login to Admin Dashboard</h3>
-		 <form onSubmit={handleSubmit}>
-
-          <div>Admin Email</div>
-          <input className="form-control"
-            type="text"
-            value={adminEmail}
-            onChange={handleEmailChange}
-          ></input>
-          <div>Password</div>
-          <input  className="form-control" type="text" value={pass} onChange={handlePassChange}></input>
-          <div>
-		  <br/>
-            <button type="submit" className="btn btn-white btn-block">Login</button>
-          </div>
-        </form>
-		</Col>
-       <Col lg={4}></Col>
-	   </Row>
-        </Container>
-      </section>
+    <section className="blog-details-page">
+      <Container>
+        <Row>
+          <Col lg={4}></Col>
+          <Col lg={4}>
+            <br />
+            <center>
+              {" "}
+              <img src={logoImage} alt="" />
+            </center>
+            <br />
+            <h3>Login to Admin Dashboard</h3>
+            <form onSubmit={handleSubmit}>
+              <div>Admin Email</div>
+              <input
+                className="form-control"
+                type="text"
+                value={adminEmail}
+                onChange={handleEmailChange}
+              ></input>
+              <div>Password</div>
+              <input
+                className="form-control"
+                type="text"
+                value={pass}
+                onChange={handlePassChange}
+              ></input>
+              <div>
+                <br />
+                <button type="submit" className="btn btn-white btn-block">
+                  Login
+                </button>
+              </div>
+              <div>
+                <br />
+                <button onClick={sendToReg} className="btn btn-white btn-block">
+                  Sign Up
+                </button>
+              </div>
+            </form>
+          </Col>
+          <Col lg={4}></Col>
+        </Row>
+      </Container>
+    </section>
   );
 }
 

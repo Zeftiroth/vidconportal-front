@@ -7,7 +7,13 @@ import _ from "lodash";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 
-const EventContent = (props) => {
+const EventContent = ({ eventID }) => {
+  let history = useHistory();
+  const sendToReg = (e) => {
+    e.preventDefault();
+    console.log(e.target.id);
+    history.push(`/paymentEvent/${eventID}`);
+  };
   return (
     <>
       <div className="single-blog-style-one">
@@ -55,8 +61,10 @@ const EventContent = (props) => {
             and the like.
           </p>
           <br />
-          <form action="FrontJoinEvent" className="comment-form">
-            <button type="submit">Register Now</button>
+          <form className="comment-form">
+            <button onClick={sendToReg} type="submit">
+              Register Now
+            </button>
           </form>
         </div>
       </div>

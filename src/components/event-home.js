@@ -104,7 +104,8 @@ const EventHome = () => {
                 time={convertDate(date)}
                 title={name}
                 text={text}
-                link={`/FrontEventDetails/${_id}`}
+                link={_id}
+                _id={_id}
               />
             </Col>
           ))}

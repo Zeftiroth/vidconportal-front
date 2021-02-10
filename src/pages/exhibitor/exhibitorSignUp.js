@@ -21,7 +21,6 @@ import InnerHeader from "../../components/inner-header";
 import PageHeader from "../../components/page-header";
 import Footer from "../../components/footer";
 
-
 function ExhibitorRegister() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -51,8 +50,7 @@ function ExhibitorRegister() {
       office,
       mobile,
       fax,
-      diet
-      
+      diet,
     };
     if (
       !email ||
@@ -66,11 +64,11 @@ function ExhibitorRegister() {
       !mobile ||
       !fax
     ) {
-      alert('Not all fields filled')
+      alert("Not all fields filled");
     } else if (password != passwordConfirm) {
-      alert("Password and Confirm Password do not match")
+      alert("Password and Confirm Password do not match");
     }
-      
+
     await axios
       .post(process.env.REACT_APP_BACKEND_URL + `exhibitors/register`, {
         postPackage,
@@ -105,182 +103,199 @@ function ExhibitorRegister() {
   return (
     <Layout>
       <InnerHeader />
-      <PageHeader  title="New User" crumbtext="Registration"/>
-	     <section className="blog-details-page">
-       <Container>
+      <PageHeader title="New Participant" crumbtext="Registration" />
+      <section className="blog-details-page">
+        <Container>
           <Row>
-		   <Col lg={4}></Col>
+            <Col lg={4}></Col>
             <Col lg={4}>
-        <form onSubmit={handleSubmit} style={{backgroundColor:'#668696',color: 'white', padding:'15px'}}>
-		 <h3>Register new exhibitor account</h3>
-		   <div className="form-group">
-                    <label>Username</label>
-        
-          <input className="form-control" placeholder="Enter UserName"
-            value={username}
-            type="text"
-            onChange={(e) => {
-              setUsername(e.target.value);
-            }}
-          />
-		  </div>
- <div className="form-group">
-                    <label>Email</label>
+              <form
+                onSubmit={handleSubmit}
+                style={{
+                  backgroundColor: "#668696",
+                  color: "white",
+                  padding: "15px",
+                }}
+              >
+                <h3>Register new participant</h3>
+                <div className="form-group">
+                  <label>Username</label>
 
-          <input className="form-control" placeholder="Enter Email"
-            value={email}
-            type="text"
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-          />
-		  </div>
-		   <div className="form-group">
-                    <label>Password</label>
-        
-          <input className="form-control" placeholder="Enter Password"
-            value={password}
-            type="text"
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-          />
-		  </div>
-		     <div className="form-group">
-                    <label>Confirm Password</label>
-     
-          <input className="form-control" placeholder="Enter Confirm Password"
-            value={passwordConfirm}
-            type="text"
-            onChange={(e) => {
-              setPasswordConfirm(e.target.value);
-            }}
-          />
-		  </div>
-		     <div className="form-group">
-                    <label>Name</label>
-         
-          <input className="form-control" placeholder="Enter Name"
-            value={name}
-            type="text"
-            onChange={(e) => {
-              setName(e.target.value);
-            }}
-          />
-		  </div>
-		     <div className="form-group">
-                    <label>Organization</label>
-      
-          <input className="form-control" placeholder="Enter Organization"
-            value={organization}
-            type="text"
-            onChange={(e) => {
-              setOrganization(e.target.value);
-            }}
-          />
-		  </div>
-		  <div className="form-group">
-                    <label>Designation</label>
-        
-          <input className="form-control" placeholder="Enter Designation"
-            value={designation}
-            type="text"
-            onChange={(e) => {
-              setDesignation(e.target.value);
-            }}
-          />
-		  </div>
-		  
-		   <div className="form-group">
-                    <label>Address</label>
-          <input className="form-control" placeholder="Enter Address"
-            value={address}
-            type="text"
-            onChange={(e) => {
-              setAddress(e.target.value);
-            }}
-          />
-		  </div>
-		  
-		    <div className="form-group">
-                    <label> Office Number</label>
+                  <input
+                    className="form-control"
+                    placeholder="Enter UserName"
+                    value={username}
+                    type="text"
+                    onChange={(e) => {
+                      setUsername(e.target.value);
+                    }}
+                  />
+                </div>
+                <div className="form-group">
+                  <label>Email</label>
 
-          <input className="form-control" placeholder="Enter Office Number"
-            value={office}
-            type="text"
-            onChange={(e) => {
-              setOffice(e.target.value);
-            }}
-          />
-		  </div>
-		     <div className="form-group">
-                    <label> Mobile Number</label>
-          
-          <input className="form-control" placeholder="Enter  Mobile Number"
-            value={mobile}
-            type="text"
-            onChange={(e) => {
-              setMobile(e.target.value);
-            }}
-          />
-		  </div>
-		  
-		    <div className="form-group">
-                    <label> Fax Number</label>
-          <div> </div>
-          <input className="form-control" placeholder="Enter Fax Number"
-            value={fax}
-            type="text"
-            onChange={(e) => {
-              setFax(e.target.value);
-            }}
-          />
-		  </div>
-		  
-		    <div className="form-group">
-                    <label>Diet</label>
-         
-          <select className="form-control" placeholder="Enter Diet"
-           
-            
-            value={diet}
-            onChange={(e) => {
-              setDiet(e.target.value);
-            }}
-          >
-            <option
-             
-              value="non-vegetarian"
-            >
-              Non-Vegetarian
-            </option>
-            <option
-              
-              value="vegetarian"
-            >
-              Vegetarian
-            </option>
-            
-          </select>
-</div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
+                  <input
+                    className="form-control"
+                    placeholder="Enter Email"
+                    value={email}
+                    type="text"
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                    }}
+                  />
+                </div>
+                <div className="form-group">
+                  <label>Password</label>
 
-          <div>
-            <button type="submit" className="btn btn-primary btn-block">Sign Up</button>
-          </div>
-        </form>
-      </Col>
-	 
-	   <Col lg={4}>
-	    </Col>
-	 
-	 </Row>
-	
-	 </Container>
-	  </section>
+                  <input
+                    className="form-control"
+                    placeholder="Enter Password"
+                    value={password}
+                    type="text"
+                    onChange={(e) => {
+                      setPassword(e.target.value);
+                    }}
+                  />
+                </div>
+                <div className="form-group">
+                  <label>Confirm Password</label>
+
+                  <input
+                    className="form-control"
+                    placeholder="Enter Confirm Password"
+                    value={passwordConfirm}
+                    type="text"
+                    onChange={(e) => {
+                      setPasswordConfirm(e.target.value);
+                    }}
+                  />
+                </div>
+                <div className="form-group">
+                  <label>Name</label>
+
+                  <input
+                    className="form-control"
+                    placeholder="Enter Name"
+                    value={name}
+                    type="text"
+                    onChange={(e) => {
+                      setName(e.target.value);
+                    }}
+                  />
+                </div>
+                <div className="form-group">
+                  <label>Organization</label>
+
+                  <input
+                    className="form-control"
+                    placeholder="Enter Organization"
+                    value={organization}
+                    type="text"
+                    onChange={(e) => {
+                      setOrganization(e.target.value);
+                    }}
+                  />
+                </div>
+                <div className="form-group">
+                  <label>Designation</label>
+
+                  <input
+                    className="form-control"
+                    placeholder="Enter Designation"
+                    value={designation}
+                    type="text"
+                    onChange={(e) => {
+                      setDesignation(e.target.value);
+                    }}
+                  />
+                </div>
+
+                <div className="form-group">
+                  <label>Address</label>
+                  <input
+                    className="form-control"
+                    placeholder="Enter Address"
+                    value={address}
+                    type="text"
+                    onChange={(e) => {
+                      setAddress(e.target.value);
+                    }}
+                  />
+                </div>
+
+                <div className="form-group">
+                  <label> Office Number</label>
+
+                  <input
+                    className="form-control"
+                    placeholder="Enter Office Number"
+                    value={office}
+                    type="text"
+                    onChange={(e) => {
+                      setOffice(e.target.value);
+                    }}
+                  />
+                </div>
+                <div className="form-group">
+                  <label> Mobile Number</label>
+
+                  <input
+                    className="form-control"
+                    placeholder="Enter  Mobile Number"
+                    value={mobile}
+                    type="text"
+                    onChange={(e) => {
+                      setMobile(e.target.value);
+                    }}
+                  />
+                </div>
+
+                <div className="form-group">
+                  <label> Fax Number</label>
+                  <div> </div>
+                  <input
+                    className="form-control"
+                    placeholder="Enter Fax Number"
+                    value={fax}
+                    type="text"
+                    onChange={(e) => {
+                      setFax(e.target.value);
+                    }}
+                  />
+                </div>
+
+                <div className="form-group">
+                  <label>Diet</label>
+
+                  <select
+                    className="form-control"
+                    placeholder="Enter Diet"
+                    value={diet}
+                    onChange={(e) => {
+                      setDiet(e.target.value);
+                    }}
+                  >
+                    <option value="non-vegetarian">Non-Vegetarian</option>
+                    <option value="vegetarian">Vegetarian</option>
+                  </select>
+                </div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div>
+                  <button type="submit" className="btn btn-primary btn-block">
+                    Sign Up
+                  </button>
+                </div>
+              </form>
+            </Col>
+
+            <Col lg={4}></Col>
+          </Row>
+        </Container>
+      </section>
       <Footer />
     </Layout>
   );

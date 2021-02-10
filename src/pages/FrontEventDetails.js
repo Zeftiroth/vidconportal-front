@@ -14,7 +14,8 @@ import EventContent from "../components/event-content";
 import Footer from "../components/footer";
 
 function FrontEventDetails(props) {
-  let eventID = props.match.params.FrontEventDetails;
+  let eventID = props.match.params.id;
+  console.log(eventID);
   let token = localStorage.getItem("auth-token");
   const [eventDetails, setEventDetails] = useState([]);
   console.log({ "event details": eventDetails });
@@ -71,7 +72,7 @@ function FrontEventDetails(props) {
         <Container>
           <Row>
             <Col lg={12}>
-              <EventContent />
+              <EventContent eventID={eventID} />
             </Col>
           </Row>
         </Container>

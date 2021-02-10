@@ -12,7 +12,7 @@ function ExhibitorLogin() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     await axios
       .post(process.env.REACT_APP_BACKEND_URL + `exhibitors/login`, {
         email: email,
@@ -22,8 +22,8 @@ function ExhibitorLogin() {
         console.log(response.data);
         setLoginData({
           token: response.data.token,
-          data: response
-        })
+          data: response,
+        });
         // dispatch(GetUser(loginData));
         localStorage.setItem("auth-token", response.data.token);
       })
