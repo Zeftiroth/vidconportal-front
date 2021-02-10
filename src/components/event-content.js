@@ -1,8 +1,19 @@
-import React from "react";
 import postImage from "../assets/images/blog-s-1-1.png";
 import authorImage from "../assets/images/author-1-1.jpg";
+import React, { useState, useEffect, useContext } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import _ from "lodash";
 
-const EventContent = () => {
+import { useHistory } from "react-router-dom";
+import axios from "axios";
+
+const EventContent = ({ eventID }) => {
+  let history = useHistory();
+  const sendToReg = (e) => {
+    e.preventDefault();
+    console.log(e.target.id);
+    history.push(`/paymentEvent/${eventID}`);
+  };
   return (
     <>
       <div className="single-blog-style-one">
@@ -49,10 +60,12 @@ const EventContent = () => {
             years, sometimes by accident, sometimes on purpose injected humour
             and the like.
           </p>
-		  <br/>
-		   <form action="FrontJoinEvent" className="comment-form">
-		       <button type="submit">Register Now</button>
-			   </form>
+          <br />
+          <form className="comment-form">
+            <button onClick={sendToReg} type="submit">
+              Register Now
+            </button>
+          </form>
         </div>
       </div>
       <div className="share-block">

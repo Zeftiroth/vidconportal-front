@@ -50,22 +50,21 @@ function FrontEventList() {
   return (
     <Layout>
       <InnerHeader />
-      <PageHeader  title="Event Listing" crumbtext="All Events"/>
-	  
-	   <section className="blog-details-page">
+      <PageHeader title="Event Listing" crumbtext="All Events" />
+
+      <section className="blog-details-page">
         <Container>
           <Row>
             <Col lg={8}>
-             <EventPage />
+              <EventPage />
             </Col>
             <Col lg={4}>
-              <Sidebar />
+              <Sidebar list={list} />
             </Col>
           </Row>
         </Container>
       </section>
-	  
-      
+
       <Footer />
     </Layout>
   );
