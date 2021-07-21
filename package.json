@@ -12,6 +12,7 @@
     "@zoomus/websdk": "^1.8.1",
     "axios": "^0.20.0",
     "bootstrap": "^4.5.2",
+    "browserslist": "^4.16.6",
     "express": "^4.17.1",
     "file-saver": "^2.0.5",
     "react": "^16.13.1",
