@@ -50,7 +50,7 @@ const InnerHeader = () => {
           <div className="logo-box clearfix">
           
               <a  href="/" className="navbar-brand">
-                <img src={logoImage} alt=" Image" />
+                {/* <img src={logoImage} alt=" Image" /> */}
               </a>
            
 

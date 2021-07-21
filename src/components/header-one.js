@@ -50,7 +50,7 @@ const HeaderOne = () => {
         <div className="container clearfix">
           <div className="logo-box clearfix">
             <a href="/" className="navbar-brand">
-              <img src={logoImage} alt="" />
+              {/* <img src={logoImage} alt="" /> */}
             </a>
 
             <button className="menu-toggler">

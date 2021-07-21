@@ -18,7 +18,7 @@ const Footer = () => {
               <Col lg={2} md={6} sm={12}>
                 <div className="footer-widget">
                   <a href="index.html">
-                    <img src={logoImage} alt="Awesome Image" />
+                    {/* <img src={logoImage} alt="Awesome Image" /> */}
                   </a>
                 </div>
               </Col>
@@ -32,7 +32,7 @@ const Footer = () => {
                       <i class="fa fa-phone"></i> 888 999 0000
                     </li>
                     <li>
-                      <i class="fa fa-envelope"></i> info@ksi.com
+                      <i class="fa fa-envelope"></i> info@info.com
                     </li>
                     <li>
                       855 road, broklyn street, <br />
@@ -114,9 +114,9 @@ const Footer = () => {
 
       <div className="bottom-footer text-center">
         <Container>
-          <p>
+          {/* <p>
             &copy; copyright 2020 by <a href="#">KSI</a>
-          </p>
+          </p> */}
         </Container>
       </div>
     </>
