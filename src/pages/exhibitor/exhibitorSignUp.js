@@ -33,7 +33,7 @@ function ExhibitorRegister() {
   const [office, setOffice] = useState("");
   const [mobile, setMobile] = useState("");
   const [fax, setFax] = useState("");
-  const [diet, setDiet] = useState("");
+  const [diet, setDiet] = useState("non-vegetarian");
   let { loginData, setLoginData } = useContext(LoginContext);
 
   const handleSubmit = async (e) => {

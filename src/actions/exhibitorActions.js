@@ -6,7 +6,7 @@ export const GetExhibitor = (props) => async (dispatch) => {
       type: "EXHIBITOR_LOADING",
     });
     let token = localStorage.getItem("auth-token");
-    const res = await axios.get(`http://localhost:5000/exhibitors/${props}`, {
+    const res = await axios.get(`http://vidconportal.herokuapp.com/exhibitors/${props}`, {
       headers: { "x-auth-token": token },
     });
     console.log(props);

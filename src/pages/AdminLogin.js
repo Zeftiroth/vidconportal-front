@@ -23,7 +23,7 @@ function AdminLogin() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await axios
-      .post(`http://localhost:5000/admins/login`, {
+      .post(`http://vidconportal.herokuapp.com/admins/login`, {
         email: adminEmail,
         password: pass,
       })

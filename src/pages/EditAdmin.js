@@ -60,7 +60,7 @@ function EditAdmin(props) {
         }
         else
         axios
-          .post(`http://localhost:5000/admins/update/${adminID}`, {
+          .post(`http://vidconportal.herokuapp.com/admins/update/${adminID}`, {
             adminName: { firstName, lastName },
             email: email,
             

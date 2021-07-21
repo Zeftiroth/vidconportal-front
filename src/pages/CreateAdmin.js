@@ -62,7 +62,7 @@ function CreateAdmin() {
   const handleSubmit = (e) => {
     e.preventDefault();
     // axios
-    //   .post(`http://localhost:5000/admins/add`, {
+    //   .post(`http://vidconportal.herokuapp.com/admins/add`, {
     //     adminName: { firstName, lastName },
     //     email: email,
     //     password: password,
