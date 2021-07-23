@@ -127,7 +127,7 @@ function App() {
   };
   useEffect(() => {
     console.log(loginData);
-    checkLogin();
+    // checkLogin();
   }, []);
   // useEffect(() => {
   //   recheckLogin()
