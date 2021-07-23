@@ -34,9 +34,9 @@ function AdminLogin() {
           login: res.data.login,
         });
         localStorage.setItem("auth-token", res.data.token);
-        history.push("/admin");
         if (res.status === 200) {
           alert("Login success")
+          history.push("/admin");
         }
         else {
           alert("Login error")

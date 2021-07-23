@@ -48,11 +48,11 @@ function Login() {
         });
         // dispatch(GetUser(loginData));
         localStorage.setItem("auth-token", response.data.token);
-         history.push(`/FronteventList`);
       })
       .catch((err) => {
         console.log(err.message);
       });
+      history.push(`/FronteventList`);
   };
 
   return (
