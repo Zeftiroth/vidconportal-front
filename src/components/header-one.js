@@ -14,6 +14,7 @@ const HeaderOne = () => {
     };
   });
 
+  let token = localStorage.getItem("auth-token");
   const handleScroll = () => {
     if (window.scrollY > 70) {
       setSticky(true);
@@ -40,6 +41,11 @@ const HeaderOne = () => {
     });
   };
 
+  const logout = () => {
+    
+    localStorage.setItem("auth-token", "");
+  };
+
   return (
     <header className="site-header header-one">
       <nav
@@ -62,13 +68,27 @@ const HeaderOne = () => {
             <NavLinks />
           </div>
           <div className="right-side-box">
+            { (token !== "") ? (
             <a
               href="/exhibitorLogin"
+              style={{ backgroundColor: "#F58220", color: "white" }}
+              className="header-btn"
+              onClick={logout()}
+            >
+              Logout
+            </a>
+
+            ):(
+              <a
+              href="/Login"
               style={{ backgroundColor: "#F58220", color: "white" }}
               className="header-btn"
             >
               Login
             </a>
+
+            )}
+            
           </div>
         </div>
       </nav>

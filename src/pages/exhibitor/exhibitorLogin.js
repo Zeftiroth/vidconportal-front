@@ -9,6 +9,7 @@ function ExhibitorLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   let { loginData, setLoginData } = useContext(LoginContext);
+  const history = useHistory();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,10 +27,16 @@ function ExhibitorLogin() {
         });
         // dispatch(GetUser(loginData));
         localStorage.setItem("auth-token", response.data.token);
+        if(response.data) {
+          alert("Login success")
+          history.push(`createAdmin`);
+        }
       })
       .catch((err) => {
         console.log(err.message);
+        alert("Login Failed"+ err.message);
       });
+
   };
 
   return (

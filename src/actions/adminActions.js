@@ -5,7 +5,7 @@ export const GetAdminList = () => async dispatch => {
         dispatch({
             type:"ADMIN_LOADING"
         });
-        const res = await axios.get(`http://vidconportal.herokuapp.com/admins`);
+        const res = await axios.get(`https://vidconportal.herokuapp.com/admins`);
 
         dispatch({
           type: "ADMIN_SUCCESS",
@@ -27,7 +27,7 @@ export const GetAdmin = (id) => async (dispatch) => {
     dispatch({
       type: "ADMIN_M_LOADING",
     });
-    const res = await axios.get(`http://vidconportal.herokuapp.com/admins/${id}`);
+    const res = await axios.get(`https://vidconportal.herokuapp.com/admins/${id}`);
     // console.log(res.data)
     dispatch({
       type: "ADMIN_M_SUCCESS",
@@ -48,7 +48,7 @@ export const AddAdmin = (props) => async (dispatch) => {
             type: "ADD_ADMIN_LOADING",
         
         })
-        const result = await axios.post(`http://vidconportal.herokuapp.com/admins/add`, {
+        const result = await axios.post(`https://vidconportal.herokuapp.com/admins/add`, {
           adminName:  props.adminName, 
           email: props.email,
           password: props.password,

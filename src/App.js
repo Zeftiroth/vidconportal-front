@@ -49,19 +49,19 @@ import ParticipantProfile from "./pages/exhibitor/participantProfile";
 function App() {
   let [toggle, setToggle] = useState(false);
   let [loginData, setLoginData] = useState({
-    token: undefined,
-    data: undefined,
-    access: undefined,
+    // token: undefined,
+    // data: undefined,
+    // access: undefined,
   });
   const checkLogin = async () => {
     let token = localStorage.getItem("auth-token");
-    if (token === null) {
-      localStorage.setItem("auth-token", "");
-      token = "";
-    }
+    // if (token === null) {
+    //   localStorage.setItem("auth-token", "");
+    //   token = "";
+    // }
 
     const tokenResAdmin = await axios.post(
-      `http://vidconportal.herokuapp.com/admins/tokenIsValid`,
+      `https://vidconportal.herokuapp.com/admins/tokenIsValid`,
       null,
       {
         headers: { "x-auth-token": token },
@@ -69,7 +69,7 @@ function App() {
     );
 
     const tokenResUser = await axios.post(
-      `http://vidconportal.herokuapp.com/users/tokenIsValid`,
+      `https://vidconportal.herokuapp.com/users/tokenIsValid`,
       null,
       {
         headers: { "x-auth-token": token },
@@ -77,7 +77,7 @@ function App() {
     );
 
     const tokenResExhibitor = await axios.post(
-      `http://vidconportal.herokuapp.com/exhibitors/tokenIsValid`,
+      `https://vidconportal.herokuapp.com/exhibitors/tokenIsValid`,
       null,
       {
         headers: { "x-auth-token": token },
@@ -89,7 +89,7 @@ function App() {
     console.log(tokenResUser.data);
     if (tokenResAdmin.data) {
       const loginRes = await axios.get(
-        `http://vidconportal.herokuapp.com/admins/checkLoggedIn`,
+        `https://vidconportal.herokuapp.com/admins/checkLoggedIn`,
         {
           headers: { "x-auth-token": token },
         }
@@ -101,7 +101,7 @@ function App() {
       // localStorage.setItem("auth-token", token);
     } else if (tokenResExhibitor.data) {
       const exloginRes = await axios.get(
-        `http://vidconportal.herokuapp.com/exhibitors/checkLoggedIn`,
+        `https://vidconportal.herokuapp.com/exhibitors/checkLoggedIn`,
         {
           headers: { "x-auth-token": token },
         }
@@ -112,7 +112,7 @@ function App() {
       });
     } else if (tokenResUser.data) {
       await axios
-        .get(`http://vidconportal.herokuapp.com/users/checkLoggedIn`, {
+        .get(`https://vidconportal.herokuapp.com/users/checkLoggedIn`, {
           headers: { "x-auth-token": token },
         })
         .then((userLoginRes) => {
@@ -132,76 +132,76 @@ function App() {
   // useEffect(() => {
   //   recheckLogin()
   // },[])
-  const recheckLogin = async () => {
-    let token = localStorage.getItem("auth-token");
+  // const recheckLogin = async () => {
+  //   let token = localStorage.getItem("auth-token");
 
-    const retokenResAdmin = await axios.post(
-      `http://vidconportal.herokuapp.com/admins/tokenIsValid`,
-      null,
-      {
-        headers: { "x-auth-token": token },
-      }
-    );
+  //   const retokenResAdmin = await axios.post(
+  //     `https://vidconportal.herokuapp.com/admins/tokenIsValid`,
+  //     null,
+  //     {
+  //       headers: { "x-auth-token": token },
+  //     }
+  //   );
 
-    const retokenResUser = await axios.post(
-      `http://vidconportal.herokuapp.com/users/tokenIsValid`,
-      null,
-      {
-        headers: { "x-auth-token": token },
-      }
-    );
+  //   const retokenResUser = await axios.post(
+  //     `https://vidconportal.herokuapp.com/users/tokenIsValid`,
+  //     null,
+  //     {
+  //       headers: { "x-auth-token": token },
+  //     }
+  //   );
 
-    const retokenResExhibitor = await axios.post(
-      `http://vidconportal.herokuapp.com/exhibitors/tokenIsValid`,
-      null,
-      {
-        headers: { "x-auth-token": token },
-      }
-    );
+  //   const retokenResExhibitor = await axios.post(
+  //     `https://vidconportal.herokuapp.com/exhibitors/tokenIsValid`,
+  //     null,
+  //     {
+  //       headers: { "x-auth-token": token },
+  //     }
+  //   );
 
-    console.log(retokenResAdmin.data);
-    console.log(retokenResExhibitor.data);
-    console.log(retokenResUser.data);
-    if (retokenResAdmin.data) {
-      const loginRes = await axios.get(
-        `http://vidconportal.herokuapp.com/admins/checkLoggedIn`,
-        {
-          headers: { "x-auth-token": token },
-        }
-      );
-      setLoginData({
-        token,
-        login: loginRes.data,
-        access: loginRes.access,
-      });
-      // localStorage.setItem("auth-token", token);
-    } else if (retokenResExhibitor.data) {
-      const loginRes = await axios.get(
-        `http://vidconportal.herokuapp.com/exhibitors/checkLoggedIn`,
-        {
-          headers: { "x-auth-token": token },
-        }
-      );
-      setLoginData({
-        token,
-        login: loginRes.data,
-        access: loginRes.access,
-      });
-    } else if (retokenResUser.data) {
-      await axios
-        .get(`http://vidconportal.herokuapp.com/users/checkLoggedIn`, {
-          headers: { "x-auth-token": token },
-        })
-        .then((userLoginRes) => {
-          console.log(userLoginRes);
+  //   console.log(retokenResAdmin.data);
+  //   console.log(retokenResExhibitor.data);
+  //   console.log(retokenResUser.data);
+  //   if (retokenResAdmin.data) {
+  //     const loginRes = await axios.get(
+  //       `https://vidconportal.herokuapp.com/admins/checkLoggedIn`,
+  //       {
+  //         headers: { "x-auth-token": token },
+  //       }
+  //     );
+  //     setLoginData({
+  //       token,
+  //       login: loginRes.data,
+  //       access: loginRes.access,
+  //     });
+  //     // localStorage.setItem("auth-token", token);
+  //   } else if (retokenResExhibitor.data) {
+  //     const loginRes = await axios.get(
+  //       `https://vidconportal.herokuapp.com/exhibitors/checkLoggedIn`,
+  //       {
+  //         headers: { "x-auth-token": token },
+  //       }
+  //     );
+  //     setLoginData({
+  //       token,
+  //       login: loginRes.data,
+  //       access: loginRes.access,
+  //     });
+  //   } else if (retokenResUser.data) {
+  //     await axios
+  //       .get(`https://vidconportal.herokuapp.com/users/checkLoggedIn`, {
+  //         headers: { "x-auth-token": token },
+  //       })
+  //       .then((userLoginRes) => {
+  //         console.log(userLoginRes);
 
-          setLoginData({
-            token: token,
-            data: userLoginRes.data,
-          });
-        });
-    }
-  };
+  //         setLoginData({
+  //           token: token,
+  //           data: userLoginRes.data,
+  //         });
+  //       });
+  //   }
+  // };
   return (
     <div className="App">
       {/* <HeaderOne /> */}

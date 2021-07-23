@@ -38,6 +38,10 @@ const InnerHeader = () => {
       });
     });
   };
+  let token = localStorage.getItem("auth-token");
+  const logout = () => {
+    localStorage.setItem("auth-token", "");
+  };
 
   return (
     <header className="site-header header-one">
@@ -48,11 +52,9 @@ const InnerHeader = () => {
       >
         <div className="container clearfix">
           <div className="logo-box clearfix">
-          
-              <a  href="/" className="navbar-brand">
-                {/* <img src={logoImage} alt=" Image" /> */}
-              </a>
-           
+            <a href="/" className="navbar-brand">
+              {/* <img src={logoImage} alt=" Image" /> */}
+            </a>
 
             <button
               className="menu-toggler"
@@ -66,9 +68,24 @@ const InnerHeader = () => {
             <NavLinksInner />
           </div>
           <div className="right-side-box">
-            <a href="/Login" style={{backgroundColor:'#F58220',color: 'white'}} className="header-btn">
-              Login
-            </a>
+            {token !== "" ? (
+              <a
+                href="/exhibitorLogin"
+                style={{ backgroundColor: "#F58220", color: "white" }}
+                className="header-btn"
+                onClick={logout()}
+              >
+                Logout
+              </a>
+            ) : (
+              <a
+                href="/Login"
+                style={{ backgroundColor: "#F58220", color: "white" }}
+                className="header-btn"
+              >
+                Login
+              </a>
+            )}
           </div>
         </div>
       </nav>

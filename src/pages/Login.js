@@ -30,6 +30,7 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   let { loginData, setLoginData } = useContext(LoginContext);
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -47,6 +48,7 @@ function Login() {
         });
         // dispatch(GetUser(loginData));
         localStorage.setItem("auth-token", response.data.token);
+         history.push(`/FronteventList`);
       })
       .catch((err) => {
         console.log(err.message);

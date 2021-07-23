@@ -23,7 +23,7 @@ function AdminLogin() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await axios
-      .post(`http://vidconportal.herokuapp.com/admins/login`, {
+      .post(`https://vidconportal.herokuapp.com/admins/login`, {
         email: adminEmail,
         password: pass,
       })
@@ -35,9 +35,16 @@ function AdminLogin() {
         });
         localStorage.setItem("auth-token", res.data.token);
         history.push("/admin");
+        if (res.status === 200) {
+          alert("Login success")
+        }
+        else {
+          alert("Login error")
+        }
       })
       .catch((err) => {
-        console.log(err);
+        console.log(err.message);
+        alert("Login error" + err.message);
       });
   };
   const sendToReg = (e) => {
@@ -55,7 +62,7 @@ function AdminLogin() {
             <br />
             <center>
               {" "}
-              <img src={logoImage} alt="" />
+              {/* <img src={logoImage} alt="" /> */}
             </center>
             <br />
             <h3>Login to Admin Dashboard</h3>

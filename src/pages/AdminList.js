@@ -42,7 +42,7 @@ function AdminList() {
     answer.toLowerCase();
     if (answer === "y") {
       axios
-        .delete(`http://vidconportal.herokuapp.com/admins/delete/${id}`)
+        .delete(`https://vidconportal.herokuapp.com/admins/delete/${id}`)
         .then((response) => {
           console.log(response);
           alert(`Successfully deleted admin`);

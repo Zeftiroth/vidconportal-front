@@ -75,6 +75,9 @@ const Footer = () => {
                       <a href="/adminLogin">Admin Login</a>
                     </li>
                     <li>
+                      <a href="/index">Index</a>
+                    </li>
+                    <li>
                       <a href="#">Support</a>
                     </li>
                     <li>

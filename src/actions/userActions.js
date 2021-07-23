@@ -7,7 +7,7 @@ export const GetUser = () => async (dispatch) => {
     });
     let token = localStorage.getItem("auth-token");
     
-    const res = await axios.get(`http://vidconportal.herokuapp.com/users/`, 
+    const res = await axios.get(`https://vidconportal.herokuapp.com/users/`, 
     // {
     //   headers: { "x-auth-token": token },
     // }
