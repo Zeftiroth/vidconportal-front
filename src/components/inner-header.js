@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from "react";
 import NavLinksInner from "./nav-links";
 import logoImage from "../assets/images/logo.png";
+import { useHistory } from "react-router-dom";
 
 const InnerHeader = () => {
+  let history = useHistory();
+  const toLogin = () => {
+    
+    // history.push(`Login`);
+  };
   const [sticky, setSticky] = useState(false);
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -41,6 +47,7 @@ const InnerHeader = () => {
   let token = localStorage.getItem("auth-token");
   const logout = () => {
     localStorage.setItem("auth-token", "");
+    history.push(`/`)
   };
 
   return (
@@ -70,7 +77,7 @@ const InnerHeader = () => {
           <div className="right-side-box">
             {token !== "" ? (
               <a
-                href="/exhibitorLogin"
+                
                 style={{ backgroundColor: "#F58220", color: "white" }}
                 className="header-btn"
                 onClick={logout()}

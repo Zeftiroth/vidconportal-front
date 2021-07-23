@@ -41,7 +41,7 @@ function Login() {
         password: password,
       })
       .then((response) => {
-        console.log(response.data);
+        console.log(response.data.token);
         setLoginData({
           token: response.data.token,
           data: response,
@@ -52,7 +52,7 @@ function Login() {
       .catch((err) => {
         console.log(err.message);
       });
-      history.push(`/FronteventList`);
+      // history.push(`/FronteventList`);
   };
 
   return (

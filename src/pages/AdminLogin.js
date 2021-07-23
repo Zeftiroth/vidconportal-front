@@ -50,7 +50,7 @@ function AdminLogin() {
   const sendToReg = (e) => {
     e.preventDefault();
     console.log(e.target.id);
-    history.push(`createAdmin`);
+    history.push(`index`);
   };
 
   return (

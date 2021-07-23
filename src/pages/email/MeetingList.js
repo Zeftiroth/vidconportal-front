@@ -29,6 +29,12 @@ function MeetingList() {
   useEffect(() => {
     fetchMeetingList();
   }, []);
+  let history = useHistory();
+  const toMeeting = (e) => {
+    e.preventDefault()
+    
+    history.push(`createMeeting/${e.target.id}`)
+  }
 
   return (
     <div>
@@ -42,8 +48,11 @@ function MeetingList() {
                   {meetingList.map((meeting) => {
                     return (
                       <div>
-                        <div>Title: {meeting.title}</div>
+                        <div id={meeting._id}>Title: {meeting.title}</div>
                         <div>Content: {meeting.body}</div>
+                        <button id={meeting._id} onClick={toMeeting}>
+                          Go
+                        </button>
                         <div>
                           {" "}
                           Receipient:{" "}

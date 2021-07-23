@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import NavLinks from "./nav-links";
 import logoImage from "../assets/images/logo.png";
+import { useHistory } from "react-router-dom";
 
 const HeaderOne = () => {
   const [sticky, setSticky] = useState(false);
@@ -21,6 +22,11 @@ const HeaderOne = () => {
     } else if (window.scrollY < 70) {
       setSticky(false);
     }
+  };
+  let history = useHistory();
+  const toLogin = () => {
+   
+    history.push(`Login`);
   };
 
   const mobileMenu = () => {
@@ -68,27 +74,24 @@ const HeaderOne = () => {
             <NavLinks />
           </div>
           <div className="right-side-box">
-            { (token !== "") ? (
-            <a
-              href="/exhibitorLogin"
-              style={{ backgroundColor: "#F58220", color: "white" }}
-              className="header-btn"
-              onClick={logout()}
-            >
-              Logout
-            </a>
-
-            ):(
+            {token !== "" ? (
               <a
-              href="/Login"
-              style={{ backgroundColor: "#F58220", color: "white" }}
-              className="header-btn"
-            >
-              Login
-            </a>
-
+                href="/"
+                style={{ backgroundColor: "#F58220", color: "white" }}
+                className="header-btn"
+                onClick={logout()}
+              >
+                Logout
+              </a>
+            ) : (
+              <a
+                onClick={toLogin}
+                style={{ backgroundColor: "#F58220", color: "white" }}
+                className="header-btn"
+              >
+                Login
+              </a>
             )}
-            
           </div>
         </div>
       </nav>

@@ -19,11 +19,11 @@ import Footer from "../components/footer";
 
 
 function LandingPage() {
-    let history = useHistory();
-    const home = e => {
-        e.preventDefault()
-        history.push("/authRouting")
-    }
+    // let history = useHistory();
+    // const home = e => {
+    //     e.preventDefault()
+    //     history.push("/authRouting")
+    // }
     return (
 	          <Layout>
       <HeaderOne />

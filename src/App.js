@@ -53,8 +53,8 @@ function App() {
     // data: undefined,
     // access: undefined,
   });
+  let token = localStorage.getItem("auth-token");
   const checkLogin = async () => {
-    let token = localStorage.getItem("auth-token");
     // if (token === null) {
     //   localStorage.setItem("auth-token", "");
     //   token = "";
@@ -126,7 +126,7 @@ function App() {
     }
   };
   useEffect(() => {
-    console.log(loginData);
+    console.log(token);
     // checkLogin();
   }, []);
   // useEffect(() => {

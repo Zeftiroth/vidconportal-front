@@ -76,7 +76,7 @@ function CreateMeeting(props) {
   return (
     <div>
       <div>
-        <div>Create Event Meeting</div>
+        <div>Event Meeting</div>
         <div>Event Name: {eventDetails.name}</div>
         <div>
           <button
@@ -101,7 +101,7 @@ function CreateMeeting(props) {
             Teams
           </button>
         </div>
-        <form onSubmit={handleSubmit}>
+        {/* <form onSubmit={handleSubmit}>
           <div>Title</div>
           <input
             value={title}
@@ -124,31 +124,12 @@ function CreateMeeting(props) {
             ></textarea>
           </div>
           <div>
-            {/* <label>Event:</label>
-            <select
-              required
-              className="form-control"
-              value={events}
-              onChange={(e) => {
-                setEvents(e.target.value);
-              }}
-            >
-              <option selected value>
-                -- select an option --
-              </option>
-              {eventList.map((ed) => {
-                return (
-                  <option key={ed._id} value={ed.name}>
-                    {ed.name}
-                  </option>
-                );
-              })}
-            </select> */}
+           
           </div>
           <div>
             <button type="submit">Create</button>
           </div>
-        </form>
+        </form> */}
       </div>
     </div>
   );

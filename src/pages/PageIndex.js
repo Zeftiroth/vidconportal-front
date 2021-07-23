@@ -29,7 +29,7 @@ function PageIndex() {
     history.push("/exhibitorProfile");
   };
   const redirectEventList = () => {
-    history.push("/eventList");
+    history.push("/FronteventList");
   };
   const redirectCreateEvent = () => {
     history.push("/createEvent");
@@ -76,40 +76,42 @@ function PageIndex() {
     <div>
       <div>
         <div>This is the index page</div>
-        <div onClick={redirectUserRegistration}>
+        {/* <div onClick={redirectUserRegistration}>
           <a>User Registration</a>
-        </div>
-        <div onClick={redirectUserProfile}>
+        </div> */}
+        {/* <div onClick={redirectUserProfile}>
           <a>User Profile</a>
-        </div>
+        </div> */}
         {/* <div onClick={redirectUserEdit}>
           <a>User Edit</a>
         </div> */}
-        <div onClick={redirectUserList}>
+        {/* <div onClick={redirectUserList}>
           <a>User List</a>
-        </div>
+        </div> */}
         <div onClick={redirectParticipantRegistration}>
           <a>Participant Registration</a>
         </div>
         <div onClick={redirectParticipantLogin}>
           <a>Participant Login</a>
         </div>
-        <div onClick={redirectParticipantProfile}>
+        {/* <div onClick={redirectParticipantProfile}>
           <a>Participant Profile</a>
-        </div>
+        </div> */}
         <div onClick={redirectParticipantList}>
           <a>Participant List</a>
         </div>
-
+        <div onClick={redirectExhibitorEdit}>
+          <a>Participant Edit</a>
+        </div>
         <div onClick={redirectAdmin}>
           <a>Admin</a>
         </div>
         <div onClick={redirectCreateAdmin}>
           <a>Create Admin</a>
         </div>
-        <div onClick={redirectUserLogin}>
+        {/* <div onClick={redirectUserLogin}>
           <a>User Login</a>
-        </div>
+        </div> */}
 
         <div onClick={redirectEventList}>
           <a>Event List</a>
@@ -126,12 +128,10 @@ function PageIndex() {
         <div onClick={redirectMeetingList}>
           <a>Meeting List</a>
         </div>
-        <div onClick={redirectExhibitorEdit}>
-          <a>Exhibitor Edit</a>
-        </div>
+{/* 
         <div onClick={redirectAuthRouting}>
           <a>Auth Routing</a>
-        </div>
+        </div> */}
 
         <div onClick={redirectAdminLogin}>
           <a>Admin Login</a>
